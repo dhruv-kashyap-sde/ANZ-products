@@ -3,6 +3,7 @@ import Navbar from '../../../utils/Navbar/Navbar'
 import HeroSection from './HeroSection'
 import ProductSection from './ProductSection'
 import Footer from '../../../utils/Footer/Footer'
+import AboutSection from './AboutSection'
 
 const Homepage = () => {
   return (
@@ -10,6 +11,7 @@ const Homepage = () => {
       <Navbar/>
       <HeroSection/>
       <ProductSection/>
+      <AboutSection/>
       <Footer/>
     </>
   )
