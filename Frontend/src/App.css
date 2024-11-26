@@ -1,0 +1,26 @@
+:root{
+    --bg-color: #070713;
+    --theme-color: #978248;
+    --theme-color-hover: #79683a;
+    --theme-color-active: #5e512d;
+    --secondary-text: #929292;
+}
+
+.basic-button{
+    padding: 10px 20px;
+    background-color: var(--theme-color);
+    border: none;
+    border-radius: 100px;
+    color: #ffff;
+    font-family: "Itim", cursive;
+    font-size: large;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+}
+.basic-button:hover{
+    background-color: var(--theme-color-hover);
+
+}
+.basic-button:active{
+    background-color: var(--theme-color-active);
+}

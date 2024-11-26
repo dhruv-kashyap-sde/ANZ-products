@@ -1,0 +1,72 @@
+.image-section {
+    padding: 50px 20px;
+    background: #fff;
+}
+
+.section-title {
+    font-size: 5vw;
+    text-align: center;
+    color: var(--theme-bg-color);
+    margin-bottom: 30px;
+}
+
+.section-title span{
+    color: var(--theme-color);
+}
+
+.bento-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.bento-grid h1 {
+    text-align: center;
+}
+
+.bento-grid h1 span {
+    color: var(--theme-color);
+}
+
+.bento-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 15px;
+    transition: transform 0.3s ease;
+}
+
+.bento-item.large {
+    grid-column: span 2;
+    grid-row: span 2;
+}
+
+.bento-item.wide {
+    grid-column: span 2;
+}
+
+.bento-item.tall {
+    grid-row: span 2;
+}
+
+.bento-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.bento-item:hover img {
+    transform: scale(1.1);
+}
+
+.bento-item:hover {
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.more-button{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 5vh 0;    
+}
