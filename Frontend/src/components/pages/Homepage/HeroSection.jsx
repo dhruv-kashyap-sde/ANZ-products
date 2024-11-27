@@ -1,17 +1,13 @@
 import React, { useEffect, useState } from "react";
 import "./HeroSection.css";
-import img1 from '../../../../public/img1.jpg';
-import img2 from '../../../../public/img2.jpg';
-import img3 from '../../../../public/img3.png';
-import img4 from '../../../../public/img4.jpg';
 
 const HeroSection = () => {
   const [currentImage, setCurrentImage] = useState(0);
   const images = [
-    img1,
-    img2,
-    img3,
-    img4,
+    "img1.jpg",
+    "img2.jpg",
+    "img3.png",
+    "img4.jpg",
   ];
 
   useEffect(() => {

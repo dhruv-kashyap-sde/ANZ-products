@@ -72,9 +72,28 @@
   color: #fff;
 }
 
+.follow-us h3, .follow-us i{
+  text-align: start;
+  transition: 0.2s ease-in-out;
+}
+
+.social-icons{
+  margin-top: 20px;
+  width: fit-content;
+  display: flex;
+  align-items: start;
+  justify-content: start;
+  gap: 3vw;
+}
+
+.social-icons i:hover{
+  font-size: 2.5rem;
+}
 .social-icons a {
-  margin: 0 10px;
-  font-size: 24px;
+  text-decoration: none;
+  color: var(--theme-color);
+  font-size: 2rem;
+  text-align: start;
 }
 
 .footer-bottom {

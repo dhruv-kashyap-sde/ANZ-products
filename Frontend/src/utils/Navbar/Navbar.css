@@ -1,67 +1,85 @@
-.navbar{
-    width: 90vw;
-    position: fixed;
-    z-index: 9;
-    top: 0;
-    left: 0;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 3vh 5vw;
-    color: var(--theme-color);
-    background-color: rgb(255, 255, 255);
-    font-size: 1.2rem;
-    font-weight: 500;
-    transition: 0.2s ease-in-out;
+.navbar {
+  width: 90vw;
+  position: fixed;
+  z-index: 9;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2vh 5vw;
+  color: var(--theme-color);
+  font-size: 1.2rem;
+  font-weight: 500;
+  background-color: rgba(255, 255, 255, 0);
+  transition: 0.2s ease-in-out;
 }
 
-.scrolled { 
-    background-color: rgba(0, 0, 0, 0.8);
-    padding: 3vh 5%;
+.navbar .logo img{
+    object-fit: cover;
+    object-position: center;
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
 }
 
-.hamburger{
-    display: none;
+.scrolled {
+  background-color: rgb(255, 255, 255);
+
+  padding: 1vh 5%;
 }
 
-.sidebar-buttons{
-    display: none;
+.hamburger {
+  display: none;
 }
 
-.navlinks{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 2vw;
+.sidebar-buttons {
+  display: none;
 }
 
-.navlinks a{
-    color: var(--text-color-2);
-    text-decoration: none;
-    transition: 0.2s ease-in-out;
+.navlinks {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2vw;
+  transition: 0.3s ease-in-out;
 }
 
-.navlinks a:hover{
-    color: var(--theme-color);
+.navlinks .nav-link{
+    border-bottom:2px solid transparent;    
+}
+
+.navlinks .active {
+border-bottom: 2px solid var(--theme-color);
+}
+
+.navlinks a {
+  color: var(--text-color-2);
+  text-decoration: none;
+  transition: 0.2s ease-in-out;
+}
+
+.navlinks a:hover {
+  color: var(--theme-color);
 }
 
 @media (max-width: 480px) {
-    .hamburger{
-        display: block;
-    }
+  .hamburger {
+    display: block;
+  }
 
-    .navlinks{
-        display: none;
-    }
+  .navlinks {
+    display: none;
+  }
 
-    .sidebar-buttons{
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 10px;
-    }
-    
-    .navbar{
-        background-color: var(--theme-color);
-    }
+  .sidebar-buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .navbar {
+    background-color: var(--theme-color);
+  }
 }

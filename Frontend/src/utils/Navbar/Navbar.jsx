@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import "./Navbar.css";
 
 const Navbar = () => {
@@ -25,12 +25,22 @@ const Navbar = () => {
   return (
     <nav className={`navbar heading-text ${scrolled ? "scrolled" : ""}`}>
       {/* <Sidebar isOpen={isOpen}/> */}
-      <div className="logo">logo </div>
+      <div className="logo">
+        <img src="logo.png" alt="logo" />
+      </div>
       <div className="navlinks">
-        <a href="/">Home</a>
-        <a href="#about">About</a>
-        <a href="#products">Products</a>
-        <a href="#contact">Contact</a>
+      <NavLink exact to="/" activeClassName="active" className="nav-link">
+        Home
+      </NavLink>
+      <NavLink to="/about" activeClassName="active" className="nav-link">
+        About
+      </NavLink>
+      <NavLink to="/contact" activeClassName="active" className="nav-link">
+        Contact
+      </NavLink>
+      <NavLink to="/products" activeClassName="active" className="nav-link">
+        Products
+      </NavLink>
         {/* <button className="basic-button" onClick={() => navigate("/login")}>
           Login
         </button> */}
