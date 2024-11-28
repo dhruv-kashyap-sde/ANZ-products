@@ -3,7 +3,7 @@ import { NavLink, useNavigate } from "react-router-dom";
 import "./Navbar.css";
 
 const Navbar = () => {
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
 
   const [scrolled, setScrolled] = useState(false);
   useEffect(() => {
@@ -41,15 +41,15 @@ const Navbar = () => {
       <NavLink to="/products" activeClassName="active" className="nav-link">
         Products
       </NavLink>
-        {/* <button className="basic-button" onClick={() => navigate("/login")}>
+        <button className="basic-button" onClick={() => navigate("/login")}>
           Login
-        </button> */}
+        </button>
       </div>
 
       <div className="sidebar-buttons">
-        {/* <button className="basic-button sidebar-login" onClick={() => navigate("/login")}>
+        <button className="basic-button sidebar-login" onClick={() => navigate("/login")}>
           Login
-        </button> */}
+        </button>
         <div onClick={toggleSidebar} className="hamburger">
           <i class="ri-menu-line basic-button"></i>
         </div>
