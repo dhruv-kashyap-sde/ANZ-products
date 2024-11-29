@@ -24,3 +24,15 @@
 .basic-button:active{
     background-color: var(--theme-color-active);
 }
+
+.curved-banner{
+    height: 50vh;
+    background-color: var(--bg-color);
+    clip-path: ellipse(80% 100% at top);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--theme-color);
+    font-size: 3vw;
+    margin-bottom: 50px;
+}

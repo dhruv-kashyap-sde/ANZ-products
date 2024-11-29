@@ -1,8 +1,8 @@
 import mongoose, { mongo } from "mongoose";
 
 // User model
-const UserSchema = new mongoose.Schema({
-  username: {
+const AdminSchema = new mongoose.Schema({
+  email: {
     type: String,
     required: true,
     unique: true,
@@ -13,4 +13,4 @@ const UserSchema = new mongoose.Schema({
   },
 });
 
-export const User = mongoose.model("User", UserSchema);
+module.exports = mongoose.model("admin", AdminSchema);

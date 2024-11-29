@@ -18,7 +18,7 @@ const HeroSection = () => {
   }, []);
 
   return (
-    <div className="hero-section-container heading-text">
+    <div className="hero-section-container scroll-container heading-text">
       <div className="hero-section-image-container">
         {images.map((image, index) => (
           <img

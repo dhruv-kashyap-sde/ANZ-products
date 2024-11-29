@@ -57,5 +57,4 @@
 .svg-container:nth-last-child(2){
     rotate: 180deg;
     margin-top: -4px;
-    margin-bottom: 100px;
 }

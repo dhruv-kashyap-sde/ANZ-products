@@ -1,6 +1,6 @@
-// const express = require('express');
+// import express from 'express';
+// import categoryController from '../controllers/categoryController'
 // const router = express.Router();
-// const categoryController = require('../controllers/categoryController');
 
 // // Create a new category
 // router.post('/categories', categoryController.createCategory);
