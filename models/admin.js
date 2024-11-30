@@ -1,4 +1,4 @@
-import mongoose, { mongo } from "mongoose";
+const mongoose = require('mongoose')
 
 // User model
 const AdminSchema = new mongoose.Schema({
