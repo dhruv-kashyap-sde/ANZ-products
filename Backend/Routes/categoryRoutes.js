@@ -1,14 +1,14 @@
-// import express from 'express';
-// import categoryController from '../controllers/categoryController'
-// const router = express.Router();
+const express = require('express')
+const categoryController = require('../controllers/categoryController');
+const router = express.Router();
 
-// // Create a new category
-// router.post('/categories', categoryController.createCategory);
+// Create a new category
+router.post('/categories', categoryController.createCategory);
 
-// // Add a product to a category
-// router.post('/products', categoryController.addProductToCategory);
+// Add a product to a category
+router.post('/products', categoryController.addProductToCategory);
 
-// // Get all categories
-// router.get('/categories', categoryController.getAllCategories);
+// Get all categories
+router.get('/categories', categoryController.getAllCategories);
 
-// module.exports = router;
+module.exports = router;

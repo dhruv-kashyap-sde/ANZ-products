@@ -8,13 +8,14 @@ import Contactpage from './components/pages/Contactpage/Contactpage';
 import Productpage from './components/pages/Productpage/Productpage';
 import Footer from './utils/Footer/Footer';
 import Loginpage from './components/pages/Loginpage/Loginpage';
+import Dashboard from './components/AdminDashboard/AdminDashboard';
 
 const App = () => {
   return (
     <Router>
       <Navbar/>
       <Routes>
-        <Route exact path="/" element={<Homepage/>} />
+        <Route exact path="/" element={<Dashboard/>} />
         <Route path="/about" element={<Aboutpage/>} />
         <Route path="/contact" element={<Contactpage/>} />
         <Route path="/products" element={<Productpage/>} />

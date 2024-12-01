@@ -1,0 +1,39 @@
+.dashboard-container{
+    margin-top: 12vh;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    border-top: 1px solid #dadada;
+}
+
+.dashboard-container .sidebar{
+    height: 100%;
+    width: 20vw;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 2px;
+    border-right: 1px solid #dadada;
+}
+
+.sidebar-button{
+    padding: 15px;
+    cursor: pointer;
+    border-radius: 10px;
+    border: none;
+    background-color: transparent;
+    color: var(--bg-color);
+    font-size: 1.1vw;
+    width: 100%;
+    transition: 0.2s ease-in;
+}
+
+.dashboard-container .sidebar-button.active, .sidebar-button:hover{
+    background-color: var(--bg-color);
+    color: var(--theme-color);
+}
+
+.dashboard-container .main-body{
+    padding: 20px;
+    width: 100%;
+}
