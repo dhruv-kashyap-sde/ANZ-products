@@ -3,7 +3,7 @@ const categoryController = require('../controllers/categoryController');
 const router = express.Router();
 
 // Create a new category
-router.post('/categories', categoryController.createCategory);
+router.post('/create-category', categoryController.createCategory);
 
 // Add a product to a category
 router.post('/products', categoryController.addProductToCategory);
