@@ -4,10 +4,6 @@
   color: var(--bg-color);
 }
 
-.all-products h1{
-    margin-bottom: 10px;
-}
-
 .product-card-container{
   display: flex;
   flex-wrap: wrap;

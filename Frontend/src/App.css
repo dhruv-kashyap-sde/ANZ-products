@@ -36,3 +36,28 @@
     font-size: 3vw;
     margin-bottom: 50px;
 }
+
+hr{
+    margin: 10px 0;
+}
+
+input[type="email"],
+input[type="password"],
+input[type="number"],
+input[type="text"],
+textarea
+ {
+  width: 90%; 
+  padding: 10px 0;
+  padding-left: 15px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  resize: none;
+}
+
+.secondary-text{
+    font-size: 13px;
+    color: #424242;
+}

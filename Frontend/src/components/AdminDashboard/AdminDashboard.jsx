@@ -4,6 +4,7 @@ import AllProducts from './AllProducts';
 import CreateProduct from './CreateProduct';
 import EditProduct from './EditProduct';
 import DeleteProduct from './DeleteProduct';
+import CreateCategory from './CreateCategory';
 
 const AdminDashboard = () => {
   const [activeComponent, setActiveComponent] = useState('AllProducts');
@@ -18,6 +19,8 @@ const AdminDashboard = () => {
         return <EditProduct />;
       case 'DeleteProduct':
         return <DeleteProduct />;
+      case 'CreateCategory':
+        return <CreateCategory/>;
       default:
         return <p>Click a button to show its corresponding page</p>;
     }
@@ -50,6 +53,13 @@ const AdminDashboard = () => {
         >
           Delete Product
         </button>
+        <button
+          className={`sidebar-button ${activeComponent === 'CreateCategory' ? 'active' : ''}`}
+          onClick={() => setActiveComponent('CreateCategory')}
+        >
+          Categories
+        </button>
+        
       </div>
       <div className="main-body">{renderComponent()}</div>
     </div>
