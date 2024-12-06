@@ -7,7 +7,10 @@ const upload = require('../config/multerConfig');
 router.post('/add-products', upload.single('image'), productController.addProduct);
 
 // Get all products
-router.get('/get-all-products', productController.getAllProducts)
+router.get('/get-all-products', productController.getAllProducts);
+
+//edit a product
+router.put('/products/:id', productController.editProduct);
 
 // Other routes...
 

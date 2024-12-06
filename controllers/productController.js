@@ -1,5 +1,5 @@
-const Product = require('../models/Products');
-const Category = require('../models/Category');
+const Product = require("../models/Products");
+const Category = require("../models/Category");
 
 // Add a product
 exports.addProduct = async (req, res) => {
@@ -20,12 +20,28 @@ exports.addProduct = async (req, res) => {
   }
 };
 
-// Show all products 
+// Show all products
 exports.getAllProducts = async (req, res) => {
-    try {
-        let allProducts = await Product.find(); 
-        res.status(200).json(allProducts);
-    } catch (error) {
-        res.status(500).json({error: error.message})
-    }
+  try {
+    let allProducts = await Product.find().populate("category", "name");
+    res.status(200).json(allProducts);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
+
+// Edit a product
+exports.editProduct = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const { name, description, price, category, images } = req.body;
+    const updatedProduct = await Product.findByIdAndUpdate(
+      id,
+      { name, description, price, category, images },
+      { new: true, runValidators: true }
+    );
+    res.status(200).json(updatedProduct);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
 };
