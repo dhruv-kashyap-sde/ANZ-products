@@ -3,7 +3,7 @@ import './DeleteProduct.css'
 
 const DeleteProduct = () => {
   return (
-    <div>DeleteProduct</div>
+    <div>Delete Product</div>
   )
 }
 

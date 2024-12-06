@@ -4,10 +4,7 @@ import axios from "axios";
 
 const CreateCategory = () => {
     const [categories, setCategories] = useState([]);
-    const[categoryData, setCategoryData] = useState({
-        categoryName: '',
-        categoryDescription: '',
-    })
+    const[categoryName, setCategoryName] = useState('')
 
     const getCategories = async () => {
       try {
@@ -36,7 +33,27 @@ const CreateCategory = () => {
       
         // Return the formatted date
         return `${hours}:${minutes} ${ampm} ${day}-${month}-${year}`;
+    }
+
+    const handleInputChange = (e) => {
+      setCategoryName(e.target.value)
+    }
+
+    const createCategories = async () => {
+      const category = { name: categoryName }
+      try {
+        let response = await axios.post(`${import.meta.env.VITE_API_URL}/create-category`, category, {
+          headers: {
+            'Content-Type': 'application/json'
+          },
+        });
+        console.log(response.data);
+        setCategoryName('');
+        getCategories();
+      } catch (error) {
+        console.log(error);
       }
+    }
       
     useEffect(() => {
       getCategories();
@@ -50,9 +67,8 @@ const CreateCategory = () => {
         <div className="category-body">
             <div className="create-category">
                 <h3>Create a Category</h3>
-                <input name="categoryName" type="text" placeholder="Category Name"/>
-                <textarea name="categoryDescription" placeholder="Enter Description..." maxLength={100}></textarea>
-                <button className="basic-button">Create</button>
+                <input value={categoryName} onChange={handleInputChange} name="categoryName" type="text" placeholder="Category Name"/>
+                <button onClick={createCategories} className="basic-button">Create</button>
             </div>
             <div className="all-categories">
             <div className="category-header">
