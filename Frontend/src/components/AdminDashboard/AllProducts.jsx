@@ -10,6 +10,8 @@ const AllProducts = () => {
       try {
         let response = await axios.get(`${import.meta.env.VITE_API_URL}/get-all-products`);
         setProducts(response.data);
+        console.log(response.data);
+        
       } catch (error) {
         console.log('Error fetching products: ' + error);
       }
@@ -24,15 +26,18 @@ const AllProducts = () => {
         <div className="product-card-container">
            {Products.map((product, index) => (
             <div className="card">
-              <div className="card-img">
-                <img src={product.images[0]} alt="" />
-              </div>
-              <div className="card-info">
-                <p className="text-title">{product.name}</p>
-                <p className="text-body">{product.description}</p>
+              <div className='card-body'>
+                <div className="card-img">
+                  <img src={product.images[0]} alt="" />
+                </div>
+                <div className="card-info">
+                  <p className="text-title">{product.name}</p>
+                  <p className="text-body">{product.description}</p>
+                </div>
               </div>
               <div className="card-footer">
-                <span className="text-title">{product.price}</span>
+                <p className="text-title">{product.price}</p>
+                <p className="secondary-text">{product.category.name}</p>
               </div>
            </div>
            ))}
