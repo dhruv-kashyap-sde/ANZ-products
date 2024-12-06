@@ -6,10 +6,10 @@ const productRoutes = require('./Routes/productRoutes');
 const adminRoutes = require('./Routes/adminRoutes');
 const cors = require('cors');
 const app = express();
-const path = require('path')
+const path = require('path');
 const PORT = process.env.PORT || 5000;
 const bcrypt = require('bcryptjs');
-const Admin = require('./models/admin')
+const Admin = require('./models/admin');
 
 const dotenv = require('dotenv');
 dotenv.config();
