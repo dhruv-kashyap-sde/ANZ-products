@@ -29,6 +29,7 @@ const Footer = () => {
             <li><i class="ri-arrow-right-s-line"></i>&nbsp;<a href="/returns-refunds">Returns & Refunds</a></li>
             <li><i class="ri-arrow-right-s-line"></i>&nbsp;<a href="/cookies-policy">Cookies Policy</a></li>
             <li><i class="ri-arrow-right-s-line"></i>&nbsp;<a href="/faq">Frequently Asked Questions</a></li>
+            <li><i class="ri-arrow-right-s-line"></i>&nbsp;<a href="/dashboard">Admin</a></li>
           </ul>
         </div>
         <div className="footer-section company">

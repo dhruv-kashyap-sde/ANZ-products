@@ -41,9 +41,6 @@ const Navbar = () => {
       <NavLink to="/products" activeClassName="active" className="nav-link">
         Products
       </NavLink>
-        <button className="basic-button" onClick={() => navigate("/login")}>
-          Login
-        </button>
       </div>
 
       <div className="sidebar-buttons">

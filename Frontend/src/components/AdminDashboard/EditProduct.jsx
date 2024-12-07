@@ -1,11 +1,16 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import axios from 'axios';
 import './EditProduct.css';
+import { ProductContext } from '../../context/ProductContext';
 
 const EditProduct = () => {
   const URL = import.meta.env.VITE_API_URL;
-  const [products, setProducts] = useState([]);
-  const [categories, setCategories] = useState([]);
+  const { 
+    categories, 
+    allProducts,
+    setAllProducts,
+   } = useContext(ProductContext);
+
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [formData, setFormData] = useState({
     name: '',
@@ -14,22 +19,6 @@ const EditProduct = () => {
     category: '',
     images: []
   });
-
-  useEffect(() => {
-    const fetchProductsAndCategories = async () => {
-      try {
-        const [productsResponse, categoriesResponse] = await Promise.all([
-          axios.get(`${URL}/get-all-products`),
-          axios.get(`${URL}/categories`)
-        ]);
-        setProducts(productsResponse.data);
-        setCategories(categoriesResponse.data);
-      } catch (error) {
-        console.error('Error fetching data', error);
-      }
-    };
-    fetchProductsAndCategories();
-  }, []);
 
   const handleProductSelect = (product) => {
     setSelectedProduct(product);
@@ -60,15 +49,16 @@ const EditProduct = () => {
       console.error('Error updating product', error);
     } finally{
       let response = await axios.get(`${URL}/get-all-products`);
-      setProducts(response.data);
+      setAllProducts(response.data);
     }
   };
 
   return (
     <div className="edit-product-container">
-      <h2>Edit Product</h2>
+      <h1>Edit Product</h1>
+      <hr />
       <div className="product-list">
-        {products.map(product => (
+        {allProducts.map(product => (
           <div className="card">
             <div onClick={() => handleProductSelect(product)} className="edit-button"><i class="ri-pencil-line"></i></div>
             <div className='card-body'>

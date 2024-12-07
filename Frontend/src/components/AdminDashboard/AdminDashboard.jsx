@@ -1,13 +1,16 @@
-import React, { useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import './AdminDashboard.css';
 import AllProducts from './AllProducts';
 import CreateProduct from './CreateProduct';
 import EditProduct from './EditProduct';
 import DeleteProduct from './DeleteProduct';
 import CreateCategory from './CreateCategory';
+import axios from 'axios';
+import { ProductContext } from '../../context/ProductContext';
 
 const AdminDashboard = () => {
   const [activeComponent, setActiveComponent] = useState('AllProducts');
+
 
   const renderComponent = () => {
     switch (activeComponent) {
