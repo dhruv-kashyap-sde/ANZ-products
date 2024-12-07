@@ -1,6 +1,3 @@
-Certainly! Here's the `README.md` file for your business website project:
-
-```markdown
 # Handmade Products Export Business Website
 
 ## Overview
