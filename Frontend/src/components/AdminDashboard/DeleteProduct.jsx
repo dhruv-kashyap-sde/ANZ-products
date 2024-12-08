@@ -9,6 +9,8 @@ const DeleteProduct = () => {
     setAllProducts
   } = useContext(ProductContext);
 
+  const URL = import.meta.env.VITE_API_URL;
+
   const [selectedProducts, setSelectedProducts] = useState([]);
   const [showConfirmDialog, setShowConfirmDialog] = useState(false);
 
@@ -23,9 +25,9 @@ const DeleteProduct = () => {
   const handleDelete = async () => {
     try {
       await Promise.all(
-        selectedProducts.map(productId => axios.delete(`http://localhost:5000/api/products/${productId}`))
+        selectedProducts.map(productId => axios.delete(`${URL}/products/${productId}`))
       );
-      setAllProducts(products.filter(product => !selectedProducts.includes(product._id)));
+      setAllProducts(allProducts.filter(product => !selectedProducts.includes(product._id)));
       setSelectedProducts([]);
       setShowConfirmDialog(false);
     } catch (error) {
@@ -79,8 +81,8 @@ const DeleteProduct = () => {
         <div className="confirm-dialog-overlay">
             <div className="confirm-dialog">
             <p>Are you sure you want to delete the selected products?</p>
-            <button onClick={handleDelete}>Yes</button>
-            <button onClick={handleCloseDialog}>No</button>
+            <button className='popup-yes' onClick={handleDelete}>Yes</button>
+            <button className='popup-no' onClick={handleCloseDialog}>No</button>
           </div>
         </div>
       )}

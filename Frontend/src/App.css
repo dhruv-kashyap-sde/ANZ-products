@@ -1,53 +1,100 @@
-:root{
-    --bg-color: #070713;
-    --theme-color: #ad9552;
-    --theme-color-hover: #79683a;
-    --theme-color-active: #5e512d;
-    --secondary-text: #929292;
+:root {
+  --bg-color: #070713;
+  --theme-color: #ad9552;
+  --theme-color-hover: #79683a;
+  --theme-color-active: #5e512d;
+  --secondary-text: #929292;
 }
 
-.basic-button{
-    padding: 10px 20px;
-    background-color: var(--theme-color);
+.basic-button {
+  padding: 10px 20px;
+  background-color: var(--theme-color);
+  border: none;
+  border-radius: 100px;
+  color: #ffff;
+  font-family: "Itim", cursive;
+  font-size: large;
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+}
+.basic-button:hover {
+  background-color: var(--theme-color-hover);
+}
+.basic-button:active {
+  background-color: var(--theme-color-active);
+}
+
+.delete-button {
+  padding: 5px 20px;
+  background-color: var(--theme-color);
+  color: white;
+  font-family: "Itim", cursive;
+  font-size: large;
+  border-radius: 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: 0.2s ease-in-out;
+}
+
+.delete-button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.delete-button:hover:not(:disabled) {
+  background-color: #c82333;
+}
+
+.popup-yes, .popup-no{
+    padding: 10px 15px;
+    border-radius: 10px;
     border: none;
-    border-radius: 100px;
-    color: #ffff;
-    font-family: "Itim", cursive;
-    font-size: large;
+    color: white;
+    margin: 0 10px;
     cursor: pointer;
     transition: 0.2s ease-in-out;
 }
-.basic-button:hover{
-    background-color: var(--theme-color-hover);
 
-}
-.basic-button:active{
-    background-color: var(--theme-color-active);
+.popup-yes{
+    background-color: green;
 }
 
-.curved-banner{
-    height: 50vh;
-    background-color: var(--bg-color);
-    clip-path: ellipse(80% 100% at top);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--theme-color);
-    font-size: 3vw;
-    margin-bottom: 50px;
+.popup-yes:hover{
+    background-color: rgb(0, 75, 0);
 }
 
-hr{
-    margin: 10px 0;
+.popup-no{
+    background-color: #c82333;
+}
+
+.popup-no:hover{
+    background-color: #921b27;
+}
+
+.curved-banner {
+  height: 50vh;
+  background-color: var(--bg-color);
+  clip-path: ellipse(80% 100% at top);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--theme-color);
+  font-size: 3vw;
+  margin-bottom: 50px;
+}
+
+hr {
+  margin: 10px 0;
 }
 
 input[type="email"],
 input[type="password"],
 input[type="number"],
 input[type="text"],
-textarea
- {
-  width: 90%; 
+textarea {
+  width: 90%;
   padding: 10px 0;
   padding-left: 15px;
   margin: 10px 0;
@@ -57,7 +104,7 @@ textarea
   resize: none;
 }
 
-.secondary-text{
-    font-size: 13px;
-    color: #424242;
+.secondary-text {
+  font-size: 13px;
+  color: #424242;
 }
