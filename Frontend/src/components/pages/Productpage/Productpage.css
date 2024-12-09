@@ -1,12 +1,11 @@
 .product-container{
-    background-color: rgb(199, 199, 199);
-    height: 100vh;
-    /* padding: 10vh 8vw; */
+    background-color: #e4e4e4;
     display: flex;
+    padding: 5vh 10vh;
 }
 
 .product-sidebar{
-    background-color: rebeccapurple;
+    /* background-color: rebeccapurple; */
     width: 20%;
     height: 100%;
 }
@@ -20,6 +19,5 @@
 
 .product-list-container{
     width: 80%;
-    background-color: red;
     padding: 10px 15px;   
 }

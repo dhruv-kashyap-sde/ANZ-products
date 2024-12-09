@@ -8,15 +8,16 @@ const ProductCard = () => {
         <div className="product-card-img">
           <img alt="" />
         </div>
+      </div>
         <div className="product-card-info">
-          <p className="text-title">product.name</p>
-          <p className="text-body">product.description</p>
+          <h3>product.name</h3>
         </div>
-      </div>
       <div className="product-card-footer">
-        <p className="text-title">product.price</p>
-        <p className="secondary-text">product.category.name</p>
+        <p className="secondary-text">product.price</p>
       </div>
+      <button className="mail-button">
+        Get <i class="ri-mail-line"></i>
+      </button>
     </div>
   );
 };

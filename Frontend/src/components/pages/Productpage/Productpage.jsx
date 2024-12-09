@@ -19,9 +19,14 @@ const Productpage = () => {
           </ul>
         </div>
         <div className="product-list-container">
-          <h1>All Products</h1>
-          <hr />
           <div className="product-card-container">
+            <ProductCard/>
+            <ProductCard/>
+            <ProductCard/>
+            <ProductCard/>
+            <ProductCard/>
+            <ProductCard/>
+            <ProductCard/>
             <ProductCard/>
           </div>
         </div>
