@@ -26,6 +26,9 @@ app.use('/api', categoryRoutes);
 app.use('/api', productRoutes);
 app.use('/api', adminRoutes)
 
+app.get('/', (req, res) => {
+  res.send('server working')
+})
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);

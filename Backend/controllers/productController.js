@@ -4,8 +4,7 @@ const Product = require("../models/Products");
 exports.addProduct = async (req, res) => {
   try {
     const { name, description, price, categoryID } = req.body;
-    const image = req.file.path;
-    image = image.replace(/\\/g, '/');
+    const image = `http://192.168.1.171:5000/uploads/${req.file.filename}`;
     const newProduct = new Product({
       name,
       description,

@@ -4,14 +4,13 @@ import "./ProductCard.css";
 const ProductCard = ({ product }) => {
   return (
     <div className="product-card">
-      <div className="product-card-body">
+
         <div className="product-card-img">
-          <img src={product.images[0]} alt="" />
-        </div>
+          <img src={product.images[0]} alt={product.name} />
       </div>
-        <div className="product-card-info">
-          <h3>{product.name}</h3>
-        </div>
+      <div className="product-card-info">
+        <h3>{product.name}</h3>
+      </div>
       <div className="product-card-footer">
         <p className="secondary-text">₹ {product.price}</p>
       </div>
