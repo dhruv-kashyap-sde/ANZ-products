@@ -1,11 +1,11 @@
 const Product = require("../models/Products");
-const Category = require("../models/Category");
 
 // Add a product
 exports.addProduct = async (req, res) => {
   try {
     const { name, description, price, categoryID } = req.body;
     const image = req.file.path;
+    image = image.replace(/\\/g, '/');
     const newProduct = new Product({
       name,
       description,

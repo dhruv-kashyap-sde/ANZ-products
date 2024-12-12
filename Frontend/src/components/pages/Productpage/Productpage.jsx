@@ -1,8 +1,27 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import './Productpage.css'
 import ProductCard from './ProductCard';
+import axios from 'axios';
 
 const Productpage = () => {
+
+  const URL = import.meta.env.VITE_API_URL;
+  const [products, setProducts] = useState([]);
+  console.log(products);
+  
+
+  const fetchProducts = async () => {
+    try {
+      let response = await axios.get(`${URL}/get-all-products`);
+      setProducts(response.data);
+    } catch (error) {
+      console.log('Error fetching data', error); 
+    }
+  }
+
+  useEffect(() => {
+    fetchProducts();
+  }, [])
   return (
     <>
       <div className="curved-banner scroll-container">
@@ -20,14 +39,9 @@ const Productpage = () => {
         </div>
         <div className="product-list-container">
           <div className="product-card-container">
-            <ProductCard/>
-            <ProductCard/>
-            <ProductCard/>
-            <ProductCard/>
-            <ProductCard/>
-            <ProductCard/>
-            <ProductCard/>
-            <ProductCard/>
+            {products.map(product => (
+              <ProductCard product={product}/>
+            ))}
           </div>
         </div>
       </div>
