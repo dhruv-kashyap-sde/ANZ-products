@@ -10,6 +10,7 @@ import Footer from './utils/Footer/Footer';
 import Loginpage from './components/pages/Loginpage/Loginpage';
 import PrivateRoute from './utils/Private/PrivateRoute';
 import AdminDashboard from './components/AdminDashboard/AdminDashboard';
+import SingleProduct from './components/pages/Productpage/SingleProduct';
 
 const App = () => {
   return (
@@ -20,6 +21,7 @@ const App = () => {
         <Route path="/about" element={<Aboutpage/>} />
         <Route path="/contact" element={<Contactpage/>} />
         <Route path="/products" element={<Productpage/>} />
+        <Route path='/products/:id' element={<SingleProduct/>} />
         <Route path="/login" element={<Loginpage/>} />
         <Route path="/dashboard" element={<PrivateRoute role="admin"/>}>
           <Route path="" element={<AdminDashboard/>}/>

@@ -14,6 +14,10 @@ router.put('/products/:id', productController.editProduct);
 
 //delete selected products
 router.delete('/products/:id', productController.deleteProduct);
+
+//get a single product through its id
+router.get('/products/:id', productController.getProductById);
+
 // Other routes...
 
 module.exports = router;

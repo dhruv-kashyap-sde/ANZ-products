@@ -1,19 +1,21 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import './Productpage.css'
 import ProductCard from './ProductCard';
 import axios from 'axios';
+import { ProductContext } from '../../../context/ProductContext';
 
 const Productpage = () => {
 
   const URL = import.meta.env.VITE_API_URL;
-  const [products, setProducts] = useState([]);
-  console.log(products);
-  
+  const {
+    allProducts,
+    setAllProducts
+  } = useContext(ProductContext);
 
   const fetchProducts = async () => {
     try {
       let response = await axios.get(`${URL}/get-all-products`);
-      setProducts(response.data);
+      setAllProducts(response.data);
     } catch (error) {
       console.log('Error fetching data', error); 
     }
@@ -29,6 +31,8 @@ const Productpage = () => {
       </div>
       <div className="product-container">
         <div className="product-sidebar">
+          <p>title</p>
+          <hr />
           <ul>
             <li>Category</li>
             <li>Category</li>
@@ -39,7 +43,7 @@ const Productpage = () => {
         </div>
         <div className="product-list-container">
           <div className="product-card-container">
-            {products.map(product => (
+            {allProducts.map(product => (
               <ProductCard product={product}/>
             ))}
           </div>

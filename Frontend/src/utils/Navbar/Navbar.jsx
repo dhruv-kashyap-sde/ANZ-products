@@ -26,7 +26,7 @@ const Navbar = () => {
     <nav className={`navbar heading-text ${scrolled ? "scrolled" : ""}`}>
       {/* <Sidebar isOpen={isOpen}/> */}
       <div className="logo">
-        <img src="logo.png" alt="logo" />
+        <img src="/logo.png" alt="logo" />
       </div>
       <div className="navlinks">
       <NavLink exact to="/" activeClassName="active" className="nav-link">

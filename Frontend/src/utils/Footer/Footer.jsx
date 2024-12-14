@@ -20,7 +20,7 @@ const Footer = () => {
       </div>
       <div className="footer-content">
         <div className="footer-section logo">
-          <img src="logo.png" alt="ANZ Products LTD" />
+          <img src="/logo.png" alt="ANZ Products LTD" />
         </div>
         <div className="footer-section informations">
           <h3>INFORMATIONS</h3>
