@@ -62,6 +62,14 @@ const CreateProduct = () => {
       console.log(response.data);
     } catch (error) {
       console.error('Error adding product', error);
+    } finally{
+      setProduct({
+        name: '',
+        description: '',
+        price: '',
+        categoryID: '',
+        image: null,
+      })
     }
   };
 
@@ -72,14 +80,14 @@ const CreateProduct = () => {
         <h1>Create Product</h1>
         <hr />
         <div className="product-details">
-          <form onSubmit={handleSubmit} className="product-form">
+          <form  onSubmit={handleSubmit} className="product-form">
             <p>
-              <span>Product Image</span>
+              <span className="italic-text">Product Image</span>
               <input
                 required
                 type="file"
                 name="image"
-                onChange={handleImageChange}
+                onChange={handleImageChange}className="italic-text"
               />
             </p>
             <input
@@ -88,13 +96,14 @@ const CreateProduct = () => {
               name="name"
               placeholder="Product Name"
               value={product.name}
-              onChange={handleChange}
+              onChange={handleChange}className="italic-text"
             />
             <textarea
               name="description"
               placeholder="Product Description"
               value={product.description}
               onChange={handleChange}
+              className="italic-text"
             ></textarea>
             <input
               required
@@ -104,15 +113,17 @@ const CreateProduct = () => {
               placeholder="Product Price"
               value={product.price}
               onChange={handleChange}
+              className="italic-text"
             />
             <select
               name="categoryID"
               value={product.categoryID}
               onChange={handleChange}
+              className="italic-text"
             >
-              <option defaultChecked value="">Select Category</option>
+              <option className="italic-text" defaultChecked value="">Select Category</option>
               {categories.map((category, index) => (
-                <option key={index} value={category._id}>{category.name}</option>
+                <option className="italic-text" key={index} value={category._id}>{category.name}</option>
               ))}
             </select>
             <button type="submit" className="basic-button">

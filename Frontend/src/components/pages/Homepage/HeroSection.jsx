@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./HeroSection.css";
+import { useNavigate } from "react-router-dom";
 
 const HeroSection = () => {
   const [currentImage, setCurrentImage] = useState(0);
@@ -9,6 +10,9 @@ const HeroSection = () => {
     "img3.png",
     "img4.jpg",
   ];
+
+  const navigate = useNavigate();
+
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -33,7 +37,7 @@ const HeroSection = () => {
         <div className="overlay">
           <h1>ANZ PRODUCTS LTD</h1>
           <p>Innovative Craftsmanship, Sustainable Solutions</p>
-          <button className="basic-button">View Products</button>
+          <button onClick={() => navigate("/products")} className="basic-button">View Products</button>
         </div>
       </div>
     </div>

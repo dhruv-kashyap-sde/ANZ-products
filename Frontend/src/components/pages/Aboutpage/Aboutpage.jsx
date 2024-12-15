@@ -9,10 +9,10 @@ const Aboutpage = () => {
           <h1>WHO ARE WE</h1>
           <div className="about-1-body">
             <div className="left">
-              <img src="product-05.jpg" alt="about-us-photo" />
+              <img src="product-07.jpg" alt="about-us-photo" />
             </div>
             <div className="right">
-              <p>
+              <p className="italic-text">
                 At ANZ Products Ltd, we take pride in being a leading manufacturer
                 and exporter of high-quality metal handicrafts, home decor, and
                 furniture. With deep roots in India and a registered presence in
@@ -27,7 +27,7 @@ const Aboutpage = () => {
         </div>
         <div className="about-2">
           <h1>WHAT WE DO</h1>
-          <p>
+          <p className="italic-text">
             Since our inception, our goal has been to blend tradition with
             innovation. We work closely with skilled artisans, ensuring that
             each product reflects the unique artistry of India while adhering to
@@ -48,7 +48,7 @@ const Aboutpage = () => {
           <h1>OUR MISSION</h1>
           <div className="about-1-body">
             <img src="product-02.jpg" alt="about-us-photo" />
-            <p>our mission is to harmonize beauty and sustainability in metal decorative items and handicrafts. We are committed to responsible sourcing and eco-friendly production methods, ensuring that our creations not only enhance spaces but also respect the environment. By blending traditional craftsmanship with sustainable practices, we produce unique pieces that celebrate artistry while minimizing our ecological footprint. Our goal is to inspire a greater appreciation for handcrafted art and promote sustainable living. </p>
+            <p className="italic-text">Our mission is to harmonize beauty and sustainability in metal decorative items and handicrafts. We are committed to responsible sourcing and eco-friendly production methods, ensuring that our creations not only enhance spaces but also respect the environment. By blending traditional craftsmanship with sustainable practices, we produce unique pieces that celebrate artistry while minimizing our ecological footprint. Our goal is to inspire a greater appreciation for handcrafted art and promote sustainable living. </p>
             <img src="product-02.jpg" alt="about-us-photo" />
           </div>
         </div>

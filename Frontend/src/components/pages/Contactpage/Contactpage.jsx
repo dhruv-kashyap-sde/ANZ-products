@@ -8,7 +8,7 @@ const Contactpage = () => {
       <div className="contact-container">
         <div className="contact-body-1">
           <h1>Get in Touch</h1>
-          <p>
+          <p className="italic-text">
             We value your feedback and inquiries. If you have any questions,
             comments, or concerns, please don’t hesitate to reach out to us
             using the contact information provided below. Our dedicated team is
@@ -37,7 +37,7 @@ const Contactpage = () => {
         <hr />
         <div className="contact-body-3">
           <div className="contact-form-container">
-            <p>
+            <p className="italic-text">
             Alternatively, you can use the contact form below to send us a message directly from this webpage. Simply fill out the required fields and click “Submit,” and we’ll get back to you as soon as we can.
             </p>
             <div className="login-card">

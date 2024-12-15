@@ -20,6 +20,10 @@
     text-align: center;
 }
 
+.contact-body-1 p{
+    font-size: 1.5vw;
+}
+
 .contact-body-2{
     margin: 20px;
     display: flex;
@@ -41,6 +45,14 @@
     background-color: #dadada;
     border-radius: 50%;
     padding: 10px;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+    background-color: var(--bg-color);
+    color: var(--theme-color);
+}
+
+.contact-body-2 .contact-card i:hover{
+    scale: 1.2;
 }
 
 .contact-form-container{
@@ -54,4 +66,5 @@
 
 .contact-form-container p{
     width: 40%;
+    font-size: 1.5vw;
 }

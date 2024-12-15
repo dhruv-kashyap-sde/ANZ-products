@@ -5,6 +5,10 @@
   --theme-color-active: #5e512d;
   --secondary-text: #929292;
 }
+.italic-text{
+  font-family: "Itim", cursive;
+  color: #424242;
+}
 
 .basic-button {
   padding: 10px 20px;

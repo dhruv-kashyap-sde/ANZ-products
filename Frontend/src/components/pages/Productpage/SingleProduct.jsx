@@ -28,17 +28,28 @@ const SingleProduct = () => {
   return (
     <>
       <div className="curved-banner scroll-container">OUR PRODUCTS</div>
-      <div className="single-product">
-        <div className="single-product-img">
-          <img src={`${product.images[0]}`} alt={product.name} />
+        <div className="product-page">
+            <div className="product-left">
+                <img
+                    src={`${product.images[0]}`} 
+                    alt={product.name}
+                    className="product-image"
+                />
+            </div>
+            <div className="product-right">
+                <h1 className="product-name">
+                    {product.name}
+                </h1>
+                <hr />
+                <h2 className="product-category">Category: Home Decor</h2>
+                <p className="product-description italic-text">
+                    {product.description}
+                </p>
+                <button className="basic-button" onClick={() => (window.location.href = "mailto:info@example.com")}>
+                    Get Quotation <i class="ri-mail-line"></i>
+                </button>
+            </div>
         </div>
-        <div className="single-product-info">
-          <h2>{product.name}</h2>
-          <p>{product.description}</p>
-          <span>${product.price}</span>
-          <button>Do Something</button>
-        </div>
-      </div>
     </>
   );
 };

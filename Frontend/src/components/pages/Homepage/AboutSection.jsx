@@ -1,7 +1,9 @@
 import React from "react";
 import "./AboutSection.css";
+import { useNavigate } from "react-router-dom";
 
 const AboutSection = () => {
+  const navigate = useNavigate();
   return (
     <>
       <div className="svg-container">
@@ -19,7 +21,7 @@ const AboutSection = () => {
         </div>
         <div className="about-section-right">
           <div className="about-section-heading">ABOUT ANZ PRODUCTS</div>
-          <div className="about-section-text">
+          <div className="about-section-text italic-text">
             ANZ PRODUCTS LTD TAKES PRIDE IN BEING A RENOWNED MANUFACTURER AND
             EXPORTER OF SUPERIOR METAL HANDICRAFTS, HOME DECOR, AND FURNITURE.
             OPERATING IN BOTH INDIA AND THE UK, OUR DIVERSE PRODUCT SELECTION
@@ -36,7 +38,7 @@ const AboutSection = () => {
             <br /> EXPLORE OUR COLLECTIONS TODAY AND DISCOVER HOW WE CAN BRING
             ELEGANCE AND SOPHISTICATION INTO YOUR SPACES.
           </div>
-          <button className="basic-button">Know more</button>
+          <button onClick={() => navigate("/about")} className="basic-button">Know more</button>
         </div>
       </div>
       <div className="svg-container">
