@@ -1,7 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import "./SingleProduct.css";
-import { ProductContext } from "../../../context/ProductContext";
 import axios from "axios";
 
 const SingleProduct = () => {
@@ -41,6 +40,7 @@ const SingleProduct = () => {
                     {product.name}
                 </h1>
                 <hr />
+                <h2>$ {product.price}</h2>
                 <h2 className="product-category">Category: Home Decor</h2>
                 <p className="product-description italic-text">
                     {product.description}
