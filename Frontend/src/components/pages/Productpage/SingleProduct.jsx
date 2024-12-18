@@ -34,6 +34,7 @@ const SingleProduct = () => {
   if (!product) {
     return <p>Loading...</p>;
   }
+  
 
   return (
     <>
