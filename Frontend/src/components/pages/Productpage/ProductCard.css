@@ -1,5 +1,5 @@
 .product-card {
-  width: 20vw;
+  width: 250px;
   height: 300px;
   background-color: #ffffff;
   display: flex;
@@ -28,7 +28,16 @@
   display: flex;
   justify-content: space-between;
   overflow: hidden;
-  
+}
+
+.product-card-info a{
+  text-decoration: none;
+  color: var(--bg-color);
+  transition: 0.2s ease-in-out;
+}
+
+.product-card-info a:hover{
+  color: var(--theme-color);
 }
 
 .product-card-footer {

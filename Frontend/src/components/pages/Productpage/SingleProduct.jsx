@@ -2,11 +2,22 @@ import React, { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import "./SingleProduct.css";
 import axios from "axios";
+import QuotationPopup from "../../../utils/Popups/QuotationPopup";
 
 const SingleProduct = () => {
   const { id } = useParams();
   const [product, setProduct] = useState(null);
   const URL = import.meta.env.VITE_API_URL;
+
+  const [isPopupVisible, setPopupVisible] = useState(false);
+
+  const handleClosePopup = () => {
+    setPopupVisible(false);
+  };
+
+  const handleOpenPopup = () => {
+    setPopupVisible(true);
+  };
 
   useEffect(() => {
     const fetchProduct = async () => {
@@ -45,11 +56,12 @@ const SingleProduct = () => {
                 <p className="product-description italic-text">
                     {product.description}
                 </p>
-                <button className="basic-button" onClick={() => (window.location.href = "mailto:info@example.com")}>
+                <button className="basic-button" onClick={handleOpenPopup}>
                     Get Quotation <i class="ri-mail-line"></i>
                 </button>
             </div>
         </div>
+        {isPopupVisible && <QuotationPopup product={product} onClose={handleClosePopup} />}
     </>
   );
 };
