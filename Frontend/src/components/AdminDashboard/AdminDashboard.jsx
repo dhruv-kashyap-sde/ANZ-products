@@ -8,7 +8,7 @@ import CreateCategory from './CreateCategory';
 import Mails from './Mails';
 
 const AdminDashboard = () => {
-  const [activeComponent, setActiveComponent] = useState('AllProducts');
+  const [activeComponent, setActiveComponent] = useState('Mails');
 
   const renderComponent = () => {
     switch (activeComponent) {
