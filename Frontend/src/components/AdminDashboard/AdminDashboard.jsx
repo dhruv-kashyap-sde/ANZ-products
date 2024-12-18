@@ -5,12 +5,10 @@ import CreateProduct from './CreateProduct';
 import EditProduct from './EditProduct';
 import DeleteProduct from './DeleteProduct';
 import CreateCategory from './CreateCategory';
-import axios from 'axios';
-import { ProductContext } from '../../context/ProductContext';
+import Mails from './Mails';
 
 const AdminDashboard = () => {
   const [activeComponent, setActiveComponent] = useState('AllProducts');
-
 
   const renderComponent = () => {
     switch (activeComponent) {
@@ -24,6 +22,8 @@ const AdminDashboard = () => {
         return <DeleteProduct />;
       case 'CreateCategory':
         return <CreateCategory/>;
+      case 'Mails':
+        return <Mails/>;
       default:
         return <p>Click a button to show its corresponding page</p>;
     }
@@ -61,6 +61,12 @@ const AdminDashboard = () => {
           onClick={() => setActiveComponent('CreateCategory')}
         >
           Categories
+        </button>
+        <button
+          className={`sidebar-button ${activeComponent === 'Mails' ? 'active' : ''}`}
+          onClick={() => setActiveComponent('Mails')}
+        >
+          Mails
         </button>
         
       </div>
