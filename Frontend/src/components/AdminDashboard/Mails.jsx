@@ -1,4 +1,6 @@
+import { useState } from "react";
 import "./Mail.css";
+import DetailedPopup from "../../utils/Popups/DetailedPopup";
 const Mails = () => {
   const data = [
     {
@@ -37,6 +39,12 @@ const Mails = () => {
       message: "Mission completed successfully.",
     },
   ];
+
+  const [visible, setVisible] = useState(false);
+
+  const open = () => setVisible(true);
+  const close = () => setVisible(false);
+
   return (
     <>
       <div className="mail-header">
@@ -55,7 +63,7 @@ const Mails = () => {
               </thead>
               <tbody>
                 {data.map((item) => (
-                  <tr key={item.id}>
+                  <tr onClick={open} key={item.id}>
                     <td className="italic-text">{item.id}</td>
                     <td className="italic-text">{item.name}</td>
                     <td className="italic-text">{item.email}</td>
@@ -67,6 +75,7 @@ const Mails = () => {
             </table>
           </div>
         </div>
+        {visible && <DetailedPopup/>}
     </>
   );
 };
