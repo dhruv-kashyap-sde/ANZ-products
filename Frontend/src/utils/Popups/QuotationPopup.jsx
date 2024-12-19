@@ -1,11 +1,17 @@
 import React, { useState } from "react";
 import "./QuotationPopup.css";
+import axios from "axios";
 
 const QuotationPopup = ({ product, onClose }) => {
+  const URL = import.meta.env.VITE_API_URL;
+
   const [formData, setFormData] = useState({
+    date: "",
     name: "",
     email: "",
     phone: "",
+    message: "",
+    product: product._id
   });
 
   // Handle input field changes
@@ -18,9 +24,25 @@ const QuotationPopup = ({ product, onClose }) => {
   };
 
   // Handle form submission
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Form Data Submitted:", formData);
+    const currentDate = new Date().toISOString().split('T')[0]; // Get the current date in 'YYYY-MM-DD' format
+    const updatedFormData = { ...formData, date: currentDate, };
+    console.log(updatedFormData);
+    
+    try {
+      let response = await axios.post(`${URL}/add-inquiry`,
+        updatedFormData,
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        });
+
+      console.log(response.data);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
@@ -62,8 +84,17 @@ const QuotationPopup = ({ product, onClose }) => {
                 type="tel"
                 maxLength={10}
                 name="phone"
+                pattern="[0-9]{10}"
                 placeholder="Enter mobile number"
                 value={formData.phone}
+                onChange={handleInputChange}
+                required
+              />
+              <textarea
+                maxLength={500}
+                name="message"
+                placeholder="Enter Message regarding the product"
+                value={formData.message}
                 onChange={handleInputChange}
                 required
               />

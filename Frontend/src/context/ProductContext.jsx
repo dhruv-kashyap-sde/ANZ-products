@@ -6,12 +6,15 @@ const ProductContextProvider = ({ children }) => {
 
     const [allProducts, setAllProducts] = useState([]);
     const [categories, setCategories] = useState([]);
+    const [inquiries, setInquiries] = useState([]);
 
     const contextValue = {
         allProducts,
         setAllProducts,
         categories, 
-        setCategories
+        setCategories,
+        inquiries,
+        setInquiries
     }
     return (
         <ProductContext.Provider value={contextValue}>

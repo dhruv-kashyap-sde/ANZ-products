@@ -5,7 +5,7 @@ import CreateProduct from './CreateProduct';
 import EditProduct from './EditProduct';
 import DeleteProduct from './DeleteProduct';
 import CreateCategory from './CreateCategory';
-import Mails from './Mails';
+import Mails from './Inquiry';
 
 const AdminDashboard = () => {
   const [activeComponent, setActiveComponent] = useState('Mails');
@@ -66,7 +66,7 @@ const AdminDashboard = () => {
           className={`sidebar-button ${activeComponent === 'Mails' ? 'active' : ''}`}
           onClick={() => setActiveComponent('Mails')}
         >
-          Mails
+          Inquiries
         </button>
         
       </div>

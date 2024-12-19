@@ -3,6 +3,7 @@
     width: 100%;
     overflow-x: auto; /* Enables horizontal scroll for small screens */
     margin: 20px auto;
+    margin-bottom: 0;
   }
   
   /* Table styling */
@@ -47,6 +48,8 @@
       display: block;
       width: 100%;
     }
+
+
   
     .responsive-table tr {
       margin-bottom: 15px;
@@ -67,7 +70,7 @@
       /* text-transform: uppercase; */
     }
   
-    .responsive-table td:nth-of-type(1)::before { content: "Sr No"; }
+    .responsive-table td:nth-of-type(1)::before { content: "Date"; }
     .responsive-table td:nth-of-type(2)::before { content: "Name"; }
     .responsive-table td:nth-of-type(3)::before { content: "Email"; }
     .responsive-table td:nth-of-type(4)::before { content: "Phone Number"; }

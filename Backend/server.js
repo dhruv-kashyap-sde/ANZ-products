@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 const categoryRoutes = require('./Routes/categoryRoutes');
 const productRoutes = require('./Routes/productRoutes');
 const adminRoutes = require('./Routes/adminRoutes');
+const inquiryRoutes = require('./Routes/inquiryRoutes');
 const cors = require('cors');
 const app = express();
 const path = require('path');
@@ -24,7 +25,8 @@ mongoose.connect(process.env.MONGO_URI)
 
 app.use('/api', categoryRoutes);
 app.use('/api', productRoutes);
-app.use('/api', adminRoutes)
+app.use('/api', adminRoutes);
+app.use('/api', inquiryRoutes);
 
 app.get('/', (req, res) => {
   res.send('server working')
