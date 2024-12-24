@@ -4,8 +4,7 @@ const Schema = mongoose.Schema;
 // Define the schema for the data
 const InquirySchema = new Schema({
   date: {
-    type: Date, // Consider using Date type for proper date handling
-    required: true,
+    type: String, // Consider using Date type for proper date handling
   },
   name: {
     type: String,
@@ -15,14 +14,13 @@ const InquirySchema = new Schema({
   email: {
     type: String,
     required: true,
-    unique: true, // Optional: ensures uniqueness of email
     lowercase: true,
     match: [/.+@.+\..+/, 'Please enter a valid email address'], // Email validation
   },
   phone: {
     type: String,
     required: true,
-    match: [/^\d{3}-\d{3}-\d{4}$/, 'Phone number must be in the format xxx-xxx-xxxx'],
+    match: [/^\d{10}$/, 'Phone number must be in the format xxx-xxx-xxxx'],
   },
   message: {
     type: String,
