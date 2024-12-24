@@ -11,6 +11,7 @@ import Loginpage from './components/pages/Loginpage/Loginpage';
 import PrivateRoute from './utils/Private/PrivateRoute';
 import AdminDashboard from './components/AdminDashboard/AdminDashboard';
 import SingleProduct from './components/pages/Productpage/SingleProduct';
+import { Toaster } from 'react-hot-toast';
 
 const App = () => {
   return (
@@ -28,6 +29,7 @@ const App = () => {
         </Route>
       </Routes>
       <Footer/>
+      <Toaster/>
     </Router>
   );
 };

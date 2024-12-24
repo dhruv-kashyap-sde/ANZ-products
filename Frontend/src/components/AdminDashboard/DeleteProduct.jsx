@@ -1,18 +1,37 @@
 import React, { useContext, useEffect, useState } from 'react';
-import axios from 'axios';
+import axios, { all } from 'axios';
 import './DeleteProduct.css';
 import { ProductContext } from '../../context/ProductContext';
+import toast from 'react-hot-toast';
 
 const DeleteProduct = () => {
   const {
     allProducts,
-    setAllProducts
+    setAllProducts,
+    fetchProductsAndCategories,
   } = useContext(ProductContext);
 
   const URL = import.meta.env.VITE_API_URL;
 
   const [selectedProducts, setSelectedProducts] = useState([]);
   const [showConfirmDialog, setShowConfirmDialog] = useState(false);
+
+  useEffect(() => {
+    const fetchProductsAndCategories = async () => {
+      try {
+        const [productsResponse, categoriesResponse] = await Promise.all([
+          axios.get(`${URL}/get-all-products`),
+          axios.get(`${URL}/categories`)
+        ]);
+        setAllProducts(productsResponse.data);
+        setCategories(categoriesResponse.data);
+      } catch (error) {
+        console.error('Error fetching data', error);
+      }
+    };
+    
+    fetchProductsAndCategories();
+  }, []);
 
   const handleSelectProduct = (productId) => {
     setSelectedProducts(prevSelected =>
@@ -30,8 +49,10 @@ const DeleteProduct = () => {
       setAllProducts(allProducts.filter(product => !selectedProducts.includes(product._id)));
       setSelectedProducts([]);
       setShowConfirmDialog(false);
+      toast.success('Products deleted successfully');
     } catch (error) {
       console.error('Error deleting products', error);
+      toast.error('Error deleting products');
     }
   };
 
@@ -51,7 +72,8 @@ const DeleteProduct = () => {
       </h1>
       <hr />
       <div className="product-list">
-        {allProducts.map(product => (
+        {allProducts.length !== 0
+        ? allProducts.map(product => (
 
           <div key={product._id} className="card">
             <input
@@ -73,7 +95,8 @@ const DeleteProduct = () => {
               <p className="secondary-text">{product.category.name}</p>
             </div>
           </div>
-        ))}
+        ))
+      : <p>Loading...</p>}
       </div>
 
       {showConfirmDialog && (

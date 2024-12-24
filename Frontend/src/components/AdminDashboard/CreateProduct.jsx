@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./CreateProduct.css";
+import toast from "react-hot-toast";
 
 const CreateProduct = () => {
   const [product, setProduct] = useState({
@@ -60,8 +61,12 @@ const CreateProduct = () => {
         },
       });
       console.log(response.data);
+      toast.success('Product added successfully', {
+        duration: 3000,
+      });
     } catch (error) {
       console.error('Error adding product', error);
+      toast.error('Error adding product');
     } finally{
       setProduct({
         name: '',
