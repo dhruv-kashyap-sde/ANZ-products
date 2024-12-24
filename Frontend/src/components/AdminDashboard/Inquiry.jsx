@@ -4,18 +4,19 @@ import DetailedPopup from "../../utils/Popups/DetailedPopup";
 import axios from "axios";
 import { ProductContext } from "../../context/ProductContext";
 
-const Mails = () => {
+const Inquiry = () => {
   const URL = import.meta.env.VITE_API_URL;
-  // const {
-  //   inquiries,
-  //   setInquiries
-  // } = useContext(ProductContext);
   const [inquiries, setInquiries] = useState([]);
+  const [visible, setVisible] = useState(false);
+  const [selectedInquiry, setSelectedInquiry] = useState(null);
+
   useEffect(() => {
     const fetchInquiries = async () => {
       try {
         const response = await axios.get(`${URL}/inquiries`);
         setInquiries(response.data);
+        console.log(response.data);
+        
       } catch (error) {
         console.error("Error fetching inquiries", error);
       }
@@ -23,8 +24,11 @@ const Mails = () => {
     fetchInquiries();
   }, []);
 
-  const [visible, setVisible] = useState(false);
-  const open = () => setVisible(true);
+  const open = (inquiry) => {
+    setSelectedInquiry(inquiry);
+    setVisible(true);
+  };
+
   const close = () => setVisible(false);
 
   return (
@@ -47,7 +51,7 @@ const Mails = () => {
             <tbody>
               {inquiries.length !== 0 
                 && inquiries.map((item) => (
-                <tr onClick={open} key={item._id}>
+                <tr onClick={() => open(item)} key={item._id}>
                   <td className="italic-text">{item.date}</td>
                   <td className="italic-text">{item.name}</td>
                   <td className="italic-text">{item.email}</td>
@@ -61,9 +65,9 @@ const Mails = () => {
         </div>
       </div>
       {inquiries.length === 0 && <div className="no-response-text secondary-text">No Inquiries yet</div>}
-      {visible && <DetailedPopup />}
+      {visible && <DetailedPopup inquiry={selectedInquiry} close={close} />}
     </>
   );
 };
 
-export default Mails;
+export default Inquiry;

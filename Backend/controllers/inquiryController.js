@@ -28,7 +28,13 @@ exports.addInquiry = async (req, res) => {
 // fetch all the inquiries
 exports.getAllInquiries = async (req, res) => {
   try {
-    const inquiries = await Inquiry.find().populate("product", "name");
+    const inquiries = await Inquiry.find().populate({
+      path: 'product',
+      populate: {
+        path: 'category',
+        select: 'name'
+      }
+    });
     res.status(200).json(inquiries);
   } catch (err) {
     res.status(500).json({ error: err.message });
