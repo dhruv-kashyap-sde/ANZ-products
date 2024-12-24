@@ -40,6 +40,8 @@ const QuotationPopup = ({ product, onClose }) => {
         });
 
       console.log(response.data);
+      alert("Quotation sent successfully!");
+      onClose();
     } catch (error) {
       console.log(error);
     }

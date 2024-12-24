@@ -23,6 +23,7 @@
   .responsive-table thead {
     background-color: var(--bg-color);
     color: var(--theme-color);
+    cursor: default;
   }
   
   .responsive-table tbody tr:nth-child(even) {

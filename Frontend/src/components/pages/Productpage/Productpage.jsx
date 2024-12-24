@@ -43,9 +43,12 @@ const Productpage = () => {
         </div>
         <div className="product-list-container">
           <div className="product-card-container">
-            {allProducts.map(product => (
+            {allProducts.length !== 0 
+              ? allProducts.map(product => (
               <ProductCard product={product}/>
-            ))}
+            ))
+            : <h1>Loading...</h1>
+          }
           </div>
         </div>
       </div>
