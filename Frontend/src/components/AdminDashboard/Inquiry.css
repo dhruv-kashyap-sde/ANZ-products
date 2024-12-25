@@ -47,7 +47,8 @@
     .responsive-table tr,
     .responsive-table td {
       display: block;
-      width: 100%;
+      width: auto;
+      overflow: hidden;
     }
 
 
@@ -76,5 +77,6 @@
     .responsive-table td:nth-of-type(3)::before { content: "Email"; }
     .responsive-table td:nth-of-type(4)::before { content: "Phone Number"; }
     .responsive-table td:nth-of-type(5)::before { content: "Message"; }
+    .responsive-table td:nth-of-type(6)::before { content: "Product Name"; }
   }
   

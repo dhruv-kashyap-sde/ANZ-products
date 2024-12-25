@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./QuotationPopup.css";
 import axios from "axios";
+import toast from "react-hot-toast";
 
 const QuotationPopup = ({ product, onClose }) => {
   const URL = import.meta.env.VITE_API_URL;
@@ -40,7 +41,7 @@ const QuotationPopup = ({ product, onClose }) => {
         });
 
       console.log(response.data);
-      alert("Quotation sent successfully!");
+      toast.success("Your inquiry has been submitted successfully!");
       onClose();
     } catch (error) {
       console.log(error);

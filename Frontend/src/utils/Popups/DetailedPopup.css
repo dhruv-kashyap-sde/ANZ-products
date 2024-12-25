@@ -5,7 +5,7 @@
     height: 100%;
     width: 100%;
     background-color: #00000080;
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     z-index: 100;
@@ -20,6 +20,10 @@
     border-radius: 8px;
     background-color: #f9f9f9;
     position: relative;
+  }
+
+  .detailed-popup-container h1{
+    text-align: center;
   }
   
   .product-section,
@@ -54,6 +58,10 @@
     flex-direction: column;
     gap: 10px;
   }
+
+  .product-details .prod-id{
+
+  }
   
   .detailed-popup-container .product-details h3,
   .client-header h3 {
@@ -85,8 +93,6 @@
   .client-message {
     width: 100%;
     height: 80px;
-    padding: 8px;
-    border: 1px solid #ccc;
     border-radius: 4px;
     font-size: 14px;
     resize: none;
@@ -99,15 +105,15 @@
     
   }
   
-  @media (max-width: 450px) {
+  @media (max-width: 768px) {
     .detailed-popup-container {
       flex-direction: column;
-      /* width: 90vw; */
       height: 80vh;
     }
   
     .product-section,
     .client-section {
-      width: 90%;
+      width: auto;
+      height: 50%;  
     } 
   }

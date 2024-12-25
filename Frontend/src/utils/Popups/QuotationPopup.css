@@ -43,6 +43,7 @@
   
   .popup-content {
     display: flex;
+    align-items: center;
     flex-direction: column;
     padding: 1rem;
     min-height: 200px;
@@ -82,5 +83,6 @@
   @media (max-width: 600px) {
     .form-container{
         padding: 1rem;
+        width: 100%;
     }
   }

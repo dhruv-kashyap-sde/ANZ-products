@@ -6,9 +6,13 @@ import EditProduct from './EditProduct';
 import DeleteProduct from './DeleteProduct';
 import CreateCategory from './CreateCategory';
 import Mails from './Inquiry';
+import DetailedPopup from '../../utils/Popups/DetailedPopup';
+import { ProductContext } from '../../context/ProductContext';
 
 const AdminDashboard = () => {
   const [activeComponent, setActiveComponent] = useState('AllProducts');
+  const { selectedInquiry, visible, setVisible } = useContext(ProductContext);
+  const close = () => setVisible(false);
 
   const renderComponent = () => {
     switch (activeComponent) {
@@ -30,6 +34,7 @@ const AdminDashboard = () => {
   };
 
   return (
+    <>
     <div className="dashboard-container">
       <div className="sidebar">
         <button
@@ -70,8 +75,12 @@ const AdminDashboard = () => {
         </button>
         
       </div>
-      <div className="main-body">{renderComponent()}</div>
+      <div className="main-body">{renderComponent()}
+
+      </div>
     </div>
+      {visible && <DetailedPopup inquiry={selectedInquiry} close={close} />}
+      </>
   );
 };
 

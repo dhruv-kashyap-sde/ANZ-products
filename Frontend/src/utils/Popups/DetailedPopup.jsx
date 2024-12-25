@@ -6,6 +6,8 @@ const DetailedPopup = ({ inquiry, close }) => {
     <>
       <div className="detailed-popup-overlay">
         <div className="detailed-popup-container">
+          <h1>Details</h1>
+          <hr />
           <div className="product-section">
             <div className="product-image">
               <img src={inquiry.product.images[0]} alt={inquiry.product.name} />
@@ -15,7 +17,7 @@ const DetailedPopup = ({ inquiry, close }) => {
                 {inquiry.product.name} <span>${inquiry.product.price}</span>
               </h3>
               <p className="secondary-text italic-text">Category: {inquiry.product.category.name}</p>
-              <p className="italic-text">Product ID: {inquiry.product._id}</p>
+              <p className="italic-text secondary-text">Product ID: {inquiry.product._id}</p>
               <p className="client-message italic-text">{inquiry.product.description}</p>
             </div>
           </div>
