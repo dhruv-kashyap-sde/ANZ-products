@@ -5,6 +5,7 @@
   --theme-color-active: #5e512d;
   --secondary-text: #929292;
 }
+
 .basic-button {
   padding: 10px 20px;
   background-color: var(--theme-color);

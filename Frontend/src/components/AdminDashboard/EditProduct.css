@@ -57,3 +57,8 @@
     top: 10px;
     right: 10px;
 }
+@media (max-width: 768px) {
+    .product-list .card{
+      width: 120px;
+    }
+  }

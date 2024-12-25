@@ -1,8 +1,8 @@
-.svg-container{
+.svg-container, .svg-container-2{
     width: 100%;
 }
 
-.svg-container img{
+.svg-container img,.svg-container-2 img{
     width: 100%;
     object-fit: fill;
     object-position: center;
@@ -54,7 +54,15 @@
     width: fit-content;
   }
 
-.svg-container:nth-last-child(2){
+.svg-container-2{
     rotate: 180deg;
     margin-top: -4px;
+}
+
+@media (max-width: 768px) {
+    .about-section-container {
+        height: fit-content;
+        flex-direction: column;
+    }
+  
 }

@@ -32,6 +32,9 @@
   text-shadow: 0px 0px 14px var(--theme-color);
 }
 
+.overlay h1 {
+  color: var(--bg-color);
+}
 .overlay p {
   text-shadow: 0px 0px 14px var(--theme-color);
   text-transform: uppercase;

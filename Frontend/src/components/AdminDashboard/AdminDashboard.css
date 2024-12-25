@@ -37,3 +37,26 @@
     padding: 20px;
     width: 100%;
 }
+
+@media (max-width: 768px){
+    .dashboard-container{
+        flex-direction: column;
+        padding: 10px 15px;
+        width: auto;
+    }
+    .dashboard-container .main-body{
+        width: auto;
+    }
+
+    .dashboard-container .sidebar{
+        width: 100%;
+        flex-direction: row;
+        overflow-x: auto;
+        justify-content: space-around;
+        border-right: none;
+    }
+
+    .dashboard-container .sidebar-button{
+        font-size: 3vw;
+    }
+}

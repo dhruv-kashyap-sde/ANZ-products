@@ -67,3 +67,8 @@
   text-overflow: ellipsis;
 }
 
+@media (max-width: 768px) {
+  .product-card-container .card{
+    width: 120px;
+  }
+}

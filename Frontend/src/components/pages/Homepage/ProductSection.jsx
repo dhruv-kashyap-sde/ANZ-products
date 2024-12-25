@@ -36,7 +36,7 @@ const ProductSection = () => {
           <div className="bento-item wide">
             <img src="https://plus.unsplash.com/premium_photo-1721769390364-f6029aceeba4?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxleHBsb3JlLWZlZWR8Mjh8fHxlbnwwfHx8fHw%3D" alt="Project 5" />
           </div>
-          <h1>"Frame your vision."</h1>
+          <h1>"Frame your <span>vision</span>"</h1>
         </div>
         <div className="more-button">
             <button onClick={() => navigate("/products")} className="basic-button">More...</button>

@@ -24,9 +24,9 @@ const App = () => {
         <Route path="/products" element={<Productpage/>} />
         <Route path='/products/:id' element={<SingleProduct/>} />
         <Route path="/login" element={<Loginpage/>} />
-        <Route path="/dashboard" element={<PrivateRoute role="admin"/>}>
-          <Route path="" element={<AdminDashboard/>}/>
-        </Route>
+        {/* <Route path="/dashboard" element={<PrivateRoute role="admin"/>}> */}
+          <Route path="/dashboard" element={<AdminDashboard/>}/>
+        {/* </Route> */}
       </Routes>
       <Footer/>
       <Toaster/>

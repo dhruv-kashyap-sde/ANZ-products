@@ -10,9 +10,7 @@ const AboutSection = () => {
         <img src="svg-design.png" alt="" />
       </div>
       <div className="about-section-container">
-        
         <div className="about-section-left">
-          
           <img
             src="logo_transparent.png"
             alt="ANZ Products Ltd Logo"
@@ -38,10 +36,12 @@ const AboutSection = () => {
             <br /> EXPLORE OUR COLLECTIONS TODAY AND DISCOVER HOW WE CAN BRING
             ELEGANCE AND SOPHISTICATION INTO YOUR SPACES.
           </div>
-          <button onClick={() => navigate("/about")} className="basic-button">Know more</button>
+          <button onClick={() => navigate("/about")} className="basic-button">
+            Know more
+          </button>
         </div>
       </div>
-      <div className="svg-container">
+      <div className="svg-container-2">
         <img src="svg-design.png" alt="" />
       </div>
     </>

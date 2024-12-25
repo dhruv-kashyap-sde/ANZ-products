@@ -22,6 +22,7 @@
 
 .bento-grid h1 {
     text-align: center;
+    color: var(--bg-color);
 }
 
 .bento-grid h1 span {
@@ -70,3 +71,15 @@
     justify-content: center;
     margin: 5vh 0;    
 }
+
+
+@media (max-width: 480px) {
+    .image-section{
+        padding: 20px 0px;
+        overflow: hidden;
+    }
+
+    .bento-grid h1{
+        font-size: 6vw;
+    }
+  }

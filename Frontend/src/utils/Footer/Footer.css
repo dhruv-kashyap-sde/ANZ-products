@@ -102,3 +102,9 @@
   margin-top: 20px;
   font-size: 0.9em;
 }
+
+@media (max-width : 480px) {
+  .footer-bottom {
+    font-size: 0.7em;
+  }
+}
