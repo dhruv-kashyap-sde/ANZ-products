@@ -68,3 +68,53 @@
     width: 40%;
     font-size: 1.5vw;
 }
+
+@media (max-width: 768px) {
+    .contact-container{
+        padding: 0 2vh;
+    }
+    .contact-container h1{
+        font-size: 5vw;
+    }
+
+    .contact-body-1 p{
+        font-size: 4vw;
+    }
+
+    .contact-body-2{
+        flex-direction: column;
+    }
+    .contact-body-2 .contact-card{
+        width: 100%;
+        justify-content: center;
+        gap: 2vh;
+        height: 30vh;
+    }
+
+    .contact-body-2 .contact-card i{
+        font-size: 10vw;
+        
+    }
+
+    .contact-form-container{
+        flex-direction: column;
+        height: auto;
+    }
+
+    .contact-form-container p{
+        width: 100%;
+    }
+    
+    .contact-body-3{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .contact-body-3 p{
+        font-size: 3vw;
+    }
+
+    .contact-form-container{
+        width: 80%;
+    }
+}

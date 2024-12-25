@@ -85,8 +85,21 @@
   margin-bottom: 50px;
 }
 
+@media (max-width: 768px) {
+  .curved-banner {
+    font-size: 5vw;
+    width: 100%;
+    clip-path: ellipse(100% 80% at top);
+    margin-bottom: 0;
+  }
+  
+}
 hr {
   margin: 10px 0;
+}
+
+a{
+  text-decoration: none;
 }
 
 input[type="email"],

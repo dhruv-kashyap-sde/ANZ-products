@@ -44,22 +44,6 @@ const Productpage = () => {
     setActiveCategory(null);
   }
   
-  // dummy data
-//   {
-//     "_id": "676174e91ff9fd5ee25c0ad9",
-//     "name": "Hanging Bells",
-//     "description": "Hanging bells made for decoration purpose only",
-//     "price": 250,
-//     "category": {
-//         "_id": "67504ec9de8073ccf8c8b145",
-//         "name": "Home-Decor"
-//     },
-//     "images": [
-//         "http://192.168.1.171:5000/uploads/1734440169317.jpg"
-//     ],
-//     "createdAt": "2024-12-17T12:56:09.332Z",
-//     "__v": 0
-// }
   return (
     <>
       <div className="curved-banner scroll-container">

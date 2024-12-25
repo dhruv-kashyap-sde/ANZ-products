@@ -42,5 +42,29 @@
     display: grid;
     justify-content: center;
     grid-template-columns: repeat(auto-fill, 270px);
-    grid-gap: 30px 20px;
+    grid-row-gap: 30px;
+    grid-column-gap: 20px;
+}
+
+@media (max-width: 768px) {
+    .product-container{
+        padding: 5vh 2vh;
+        flex-direction: column;
+    }
+
+    .product-sidebar{
+        width: auto;
+        margin-bottom: 20px;
+        height: auto;
+    }
+
+    .product-list-container{
+        width: auto;
+        padding: 0;
+    }
+
+    .product-list-container .product-card-container{
+        display: flex;
+        flex-direction: column;
+    }
 }
