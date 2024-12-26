@@ -4,7 +4,7 @@ const Product = require("../models/Products");
 exports.addProduct = async (req, res) => {
   try {
     const { name, description, price, categoryID } = req.body;
-    const image = `http://${process.env.IP}:5000/uploads/${req.file.filename}`;
+    const image = `https://anzproductsltd.onrender.com/uploads/${req.file.filename}`;
     const newProduct = new Product({
       name,
       description,
