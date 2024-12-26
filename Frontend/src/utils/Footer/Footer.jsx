@@ -29,16 +29,16 @@ const Footer = () => {
             <li><i class="ri-arrow-right-s-line"></i>&nbsp;<a href="/returns-refunds">Returns & Refunds</a></li>
             <li><i class="ri-arrow-right-s-line"></i>&nbsp;<a href="/cookies-policy">Cookies Policy</a></li>
             <li><i class="ri-arrow-right-s-line"></i>&nbsp;<a href="/faq">Frequently Asked Questions</a></li>
-            <li><i class="ri-arrow-right-s-line"></i>&nbsp;<a href="/dashboard">Admin</a></li>
+            <li><i class="ri-arrow-right-s-line"></i>&nbsp;<Link href="/dashboard">Admin</Link></li>
           </ul>
         </div>
         <div className="footer-section company">
           <h3>COMPANY</h3>
           <ul>
-            <li><i class="ri-arrow-right-s-line"></i>&nbsp;<a href="/about-us">About Us</a></li>
+            <li><i class="ri-arrow-right-s-line"></i>&nbsp;<Link href="/about">About Us</Link></li>
             <li><i class="ri-arrow-right-s-line"></i>&nbsp;<a href="/privacy-policy">Privacy Policy</a></li>
             <li><i class="ri-arrow-right-s-line"></i>&nbsp;<a href="/terms-conditions">Terms & Conditions</a></li>
-            <li><i class="ri-arrow-right-s-line"></i>&nbsp;<a href="/contact-us">Contact Us</a></li>
+            <li><i class="ri-arrow-right-s-line"></i>&nbsp;<Link href="/contact">Contact Us</Link></li>
           </ul>
         </div>
         <div className="footer-section follow-us">
