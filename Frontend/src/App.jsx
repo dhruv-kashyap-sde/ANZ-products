@@ -25,7 +25,7 @@ const App = () => {
         <Route path='/products/:id' element={<SingleProduct/>} />
         <Route path="/login" element={<Loginpage/>} />
         <Route path="/dashboard" element={<PrivateRoute role="admin"/>}>
-          <Route path="/" element={<AdminDashboard/>}/>
+          <Route path="" element={<AdminDashboard/>}/>
         </Route>
       </Routes>
       <Footer/>
