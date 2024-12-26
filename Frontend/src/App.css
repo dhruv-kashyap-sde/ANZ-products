@@ -142,3 +142,11 @@ textarea:focus{
   justify-content: center;
   text-align: center;
 }
+
+.loader-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}

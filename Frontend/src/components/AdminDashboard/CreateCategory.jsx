@@ -2,14 +2,19 @@ import React, { useContext, useEffect, useState } from "react";
 import "./CreateCategory.css";
 import axios from "axios";
 import { ProductContext } from "../../context/ProductContext";
+import Loaders from "../../utils/Loaders/Loaders";
+import toast from "react-hot-toast";
 
 const CreateCategory = () => {
   const { categories, setCategories } = useContext(ProductContext);
 
   const [categoryName, setCategoryName] = useState("");
+  const [loadingCategories, setLoadingCategories] = useState(false);
+  const [creatingCategories, setCreatingCategories] = useState(false);
 
   const getCategories = async () => {
     try {
+      setLoadingCategories(true);
       let response = await axios.get(
         `${import.meta.env.VITE_API_URL}/categories`
       );
@@ -17,6 +22,8 @@ const CreateCategory = () => {
       console.log(response.data);
     } catch (error) {
       console.log(`Error fetching Categories: ${error}`);
+    } finally {
+      setLoadingCategories(false);
     }
   };
 
@@ -44,7 +51,12 @@ const CreateCategory = () => {
 
   const createCategories = async () => {
     const category = { name: categoryName };
+    if (!categoryName.trim()) {
+      toast.error("Category name is required");
+      return;
+    }
     try {
+      setCreatingCategories(true);
       let response = await axios.post(
         `${import.meta.env.VITE_API_URL}/create-category`,
         category,
@@ -57,8 +69,12 @@ const CreateCategory = () => {
       console.log(response.data);
       setCategoryName("");
       getCategories();
+      toast.success("Category created successfully");
     } catch (error) {
       console.log(error);
+      toast.error("Error creating category");
+    } finally {
+      setCreatingCategories(false);
     }
   };
 
@@ -81,8 +97,8 @@ const CreateCategory = () => {
               type="text"
               placeholder="Category Name"
             />
-            <button onClick={createCategories} className="basic-button">
-              Create
+            <button disabled={creatingCategories} onClick={createCategories} className="basic-button">
+              {creatingCategories? " Creating":"Create"}
             </button>
           </div>
           <div className="all-categories">
@@ -96,14 +112,20 @@ const CreateCategory = () => {
             </div>
             <hr />
             <ul>
-              {categories.map((category, index) => (
-                <li key={index}>
-                  {category.name}{" "}
-                  <span className="secondary-text">
-                    {getRealDate(category.createdAt)}
-                  </span>
-                </li>
-              ))}
+              {loadingCategories ? (
+                <div className="loading-container">
+                  <Loaders />
+                </div>
+              ) : (
+                categories.map((category, index) => (
+                  <li key={index}>
+                    {category.name}{" "}
+                    <span className="secondary-text">
+                      {getRealDate(category.createdAt)}
+                    </span>
+                  </li>
+                ))
+              )}
             </ul>
           </div>
         </div>

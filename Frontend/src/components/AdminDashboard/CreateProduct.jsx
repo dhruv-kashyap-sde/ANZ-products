@@ -14,6 +14,7 @@ const CreateProduct = () => {
   });
 
   const [categories, setCategories] = useState([]);
+  
 
   useEffect(() => {
     const getCategories = async () => {
