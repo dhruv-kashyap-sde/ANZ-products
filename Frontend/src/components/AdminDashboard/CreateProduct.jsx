@@ -4,6 +4,7 @@ import "./CreateProduct.css";
 import toast from "react-hot-toast";
 
 const CreateProduct = () => {
+  const URL = import.meta.env.VITE_API_URL;
   const [product, setProduct] = useState({
     name: '',
     description: '',
@@ -55,7 +56,7 @@ const CreateProduct = () => {
     formData.append('image', product.image);
 
     try {
-      const response = await axios.post(`${import.meta.VITE_API_URL}/add-products`, formData, {
+      const response = await axios.post(`${URL}/add-products`, formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
