@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./Loginpage.css";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import toast from "react-hot-toast";
 
 const Loginpage = () => {
   const navigate = useNavigate();
@@ -10,24 +11,33 @@ const Loginpage = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const response = await fetch(`${import.meta.env.VITE_API_URL}/admin`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        email,
-        password,
-      }),
-    });
-    const data = await response.json();
-    localStorage.setItem("token", data.token);
-    if (data.role === "admin") {
-      navigate("/dashboard");
-    } else {
-      navigate("/login");
+    try {
+      const response = await axios.get(
+        `${import.meta.env.VITE_API_URL}/admin`,
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            email,
+            password,
+          }),
+        }
+      );
+      const data = await response.json();
+      localStorage.setItem("token", data.token);
+      if (data.role === "admin") {
+        navigate("/dashboard");
+        toast.success("Login Successful");
+      } else {
+        toast.error("Invalid Credentials");
+        navigate("/login");
+      }
+      console.log(data);
+    } catch (error) {
+      toast.error("Invalid Credentials");
+      console.log(error);
     }
-    console.log(data);
   };
 
   return (
