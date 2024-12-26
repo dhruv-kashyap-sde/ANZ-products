@@ -33,7 +33,7 @@ const AllProducts = () => {
       <h1>All Products</h1>
       <hr />
       <div className="product-card-container">
-        {allProducts !== 0
+        {allProducts.length !== 0
         ? allProducts.map((product, index) => (
           <div key={index} className="card">
             <div className="card-body">
