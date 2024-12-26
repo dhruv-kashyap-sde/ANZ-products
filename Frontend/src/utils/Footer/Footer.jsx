@@ -11,10 +11,10 @@ const Footer = () => {
             <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18v44h-352z" />
           </defs>
           <g className="parallax">
-            <use href="#gentle-wave" x="48" y="0" fill="rgba(255,255,255,0.7)" />
-            <use href="#gentle-wave" x="48" y="3" fill="rgba(255,255,255,0.5)" />
-            <use href="#gentle-wave" x="48" y="5" fill="rgba(255,255,255,0.3)" />
-            <use href="#gentle-wave" x="48" y="7" fill="#070713" />
+            <use to="#gentle-wave" x="48" y="0" fill="rgba(255,255,255,0.7)" />
+            <use to="#gentle-wave" x="48" y="3" fill="rgba(255,255,255,0.5)" />
+            <use to="#gentle-wave" x="48" y="5" fill="rgba(255,255,255,0.3)" />
+            <use to="#gentle-wave" x="48" y="7" fill="#070713" />
           </g>
         </svg>
       </div>
@@ -25,20 +25,20 @@ const Footer = () => {
         <div className="footer-section informations">
           <h3>INFORMATIONS</h3>
           <ul>
-            <li><i class="ri-arrow-right-s-line"></i>&nbsp;<a href="/shipping-policy">Shipping Policy</a></li>
-            <li><i class="ri-arrow-right-s-line"></i>&nbsp;<a href="/returns-refunds">Returns & Refunds</a></li>
-            <li><i class="ri-arrow-right-s-line"></i>&nbsp;<a href="/cookies-policy">Cookies Policy</a></li>
-            <li><i class="ri-arrow-right-s-line"></i>&nbsp;<a href="/faq">Frequently Asked Questions</a></li>
-            <li><i class="ri-arrow-right-s-line"></i>&nbsp;<Link href="/dashboard">Admin</Link></li>
+            <li><i class="ri-arrow-right-s-line"></i>&nbsp;<Link to="/shipping-policy">Shipping Policy</Link></li>
+            <li><i class="ri-arrow-right-s-line"></i>&nbsp;<Link to="/returns-refunds">Returns & Refunds</Link></li>
+            <li><i class="ri-arrow-right-s-line"></i>&nbsp;<Link to="/cookies-policy">Cookies Policy</Link></li>
+            <li><i class="ri-arrow-right-s-line"></i>&nbsp;<Link to="/faq">Frequently Asked Questions</Link></li>
+            <li><i class="ri-arrow-right-s-line"></i>&nbsp;<Link to="/dashboard">Admin</Link></li>
           </ul>
         </div>
         <div className="footer-section company">
           <h3>COMPANY</h3>
           <ul>
-            <li><i class="ri-arrow-right-s-line"></i>&nbsp;<Link href="/about">About Us</Link></li>
-            <li><i class="ri-arrow-right-s-line"></i>&nbsp;<a href="/privacy-policy">Privacy Policy</a></li>
-            <li><i class="ri-arrow-right-s-line"></i>&nbsp;<a href="/terms-conditions">Terms & Conditions</a></li>
-            <li><i class="ri-arrow-right-s-line"></i>&nbsp;<Link href="/contact">Contact Us</Link></li>
+            <li><i class="ri-arrow-right-s-line"></i>&nbsp;<Link to="/about">About Us</Link></li>
+            <li><i class="ri-arrow-right-s-line"></i>&nbsp;<Link to="/privacy-policy">Privacy Policy</Link></li>
+            <li><i class="ri-arrow-right-s-line"></i>&nbsp;<Link to="/terms-conditions">Terms & Conditions</Link></li>
+            <li><i class="ri-arrow-right-s-line"></i>&nbsp;<Link to="/contact">Contact Us</Link></li>
           </ul>
         </div>
         <div className="footer-section follow-us">
