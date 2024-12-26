@@ -14,9 +14,10 @@ const Loginpage = () => {
     e.preventDefault();
     try {
       setLoading(true);
-      const response = await axios.get(
+      const response = await fetch(
         `${import.meta.env.VITE_API_URL}/admin`,
         {
+          method: "POST",
           headers: {
             "Content-Type": "application/json",
           },
