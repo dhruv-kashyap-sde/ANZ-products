@@ -6,7 +6,7 @@ import toast from "react-hot-toast";
 
 const EditProduct = () => {
   const URL = import.meta.env.VITE_API_URL;
-  const { categories, allProducts, setAllProducts } = useContext(ProductContext);
+  const { categories, allProducts, setAllProducts, setCategories } = useContext(ProductContext);
 
   
     useEffect(() => {

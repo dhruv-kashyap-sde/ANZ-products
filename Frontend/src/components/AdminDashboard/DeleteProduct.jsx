@@ -8,7 +8,7 @@ const DeleteProduct = () => {
   const {
     allProducts,
     setAllProducts,
-    fetchProductsAndCategories,
+    setCategories,
   } = useContext(ProductContext);
 
   const URL = import.meta.env.VITE_API_URL;
@@ -96,7 +96,7 @@ const DeleteProduct = () => {
             </div>
           </div>
         ))
-      : <p>Loading...</p>}
+      : <p>No products available</p>}
       </div>
 
       {showConfirmDialog && (

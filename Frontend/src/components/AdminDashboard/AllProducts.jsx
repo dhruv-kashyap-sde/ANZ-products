@@ -33,7 +33,8 @@ const AllProducts = () => {
       <h1>All Products</h1>
       <hr />
       <div className="product-card-container">
-        {allProducts.map((product, index) => (
+        {allProducts !== 0
+        ? allProducts.map((product, index) => (
           <div key={index} className="card">
             <div className="card-body">
               <div className="card-img">
@@ -48,7 +49,8 @@ const AllProducts = () => {
               <p className="secondary-text">{product.category.name}</p>
             </div>
           </div>
-        ))}
+        ))
+      : <p>No products available</p>}
       </div>
     </div>
   );
