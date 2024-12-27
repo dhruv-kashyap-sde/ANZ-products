@@ -3,27 +3,33 @@ import axios from "axios";
 import "./EditProduct.css";
 import { ProductContext } from "../../context/ProductContext";
 import toast from "react-hot-toast";
+import Loaders from "../../utils/Loaders/Loaders";
 
 const EditProduct = () => {
   const URL = import.meta.env.VITE_API_URL;
-  const { categories, allProducts, setAllProducts, setCategories } = useContext(ProductContext);
+  const { categories, allProducts, setAllProducts, setCategories } =
+    useContext(ProductContext);
+  const [loading, setLoading] = useState(false);
+  const [updating, setUpdating] = useState(false);
 
-  
-    useEffect(() => {
-      const fetchProductsAndCategories = async () => {
-        try {
-          const [productsResponse, categoriesResponse] = await Promise.all([
-            axios.get(`${URL}/get-all-products`),
-            axios.get(`${URL}/categories`)
-          ]);
-          setAllProducts(productsResponse.data);
-          setCategories(categoriesResponse.data);
-        } catch (error) {
-          console.error('Error fetching data', error);
-        }
-      };
-      fetchProductsAndCategories();
-    }, []);
+  useEffect(() => {
+    const fetchProductsAndCategories = async () => {
+      setLoading(true);
+      try {
+        const [productsResponse, categoriesResponse] = await Promise.all([
+          axios.get(`${URL}/get-all-products`),
+          axios.get(`${URL}/categories`),
+        ]);
+        setAllProducts(productsResponse.data);
+        setCategories(categoriesResponse.data);
+      } catch (error) {
+        console.error("Error fetching data", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchProductsAndCategories();
+  }, []);
 
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [formData, setFormData] = useState({
@@ -56,6 +62,7 @@ const EditProduct = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
+      setUpdating(true);
       const response = await axios.put(
         `${URL}/products/${selectedProduct._id}`,
         formData
@@ -68,6 +75,7 @@ const EditProduct = () => {
       console.error("Error updating product", error);
       toast.error("Error updating product");
     } finally {
+      setUpdating(false);
       let response = await axios.get(`${URL}/get-all-products`);
       setAllProducts(response.data);
     }
@@ -78,38 +86,47 @@ const EditProduct = () => {
       <h1>Edit Product</h1>
       <hr />
       <div className="product-list">
-        {allProducts.length !== 0 ? (
-          allProducts.map((product) => (
-            <div className="card">
-              <div
-                onClick={() => handleProductSelect(product)}
-                className="edit-button"
-              >
-                <i class="ri-pencil-line"></i>
-              </div>
-              <div className="card-body">
-                <div className="card-img">
-                  <img src={product.images[0]} alt="" />
+        {!loading ? (
+          allProducts.length !== 0 ? (
+            allProducts.map((product) => (
+              <div className="card">
+                <div
+                  onClick={() => handleProductSelect(product)}
+                  className="edit-button"
+                >
+                  <i class="ri-pencil-line"></i>
                 </div>
-                <div className="card-info">
-                  <p className="text-title">{product.name}</p>
+                <div className="card-body">
+                  <div className="card-img">
+                    <img src={product.images[0]} alt="" />
+                  </div>
+                  <div className="card-info">
+                    <p className="text-title">{product.name}</p>
+                  </div>
+                </div>
+                <div className="card-footer">
+                  <p className="text-title">$ {product.price}</p>
+                  <p className="secondary-text">{product.category.name}</p>
                 </div>
               </div>
-              <div className="card-footer">
-                <p className="text-title">$ {product.price}</p>
-                <p className="secondary-text">{product.category.name}</p>
-              </div>
-            </div>
-          ))
+            ))
+          ) : (
+            <p>No products available</p>
+          )
         ) : (
-          <p>Loading...</p>
+          <Loaders />
         )}
       </div>
       {selectedProduct && (
         <div className="edit-product-form-overlay">
           <form onSubmit={handleSubmit} className="edit-product-form">
-          <h1>Edit Product</h1>
-          <button onClick={() => setSelectedProduct(null)} className="popup-no">X</button>
+            <h1>Edit Product</h1>
+            <button
+              onClick={() => setSelectedProduct(null)}
+              className="popup-no"
+            >
+              X
+            </button>
             <input
               type="text"
               name="name"
@@ -145,8 +162,8 @@ const EditProduct = () => {
                 </option>
               ))}
             </select>
-            <button className="basic-button" type="submit">
-              Update Product
+            <button disabled={updating} className="basic-button" type="submit">
+              {updating ? "Updating..." : "Update Product"}
             </button>
           </form>
         </div>

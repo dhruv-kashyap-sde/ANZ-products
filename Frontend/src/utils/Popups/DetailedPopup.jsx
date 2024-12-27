@@ -2,6 +2,8 @@ import React from "react";
 import "./DetailedPopup.css";
 
 const DetailedPopup = ({ inquiry, close }) => {
+  const product = inquiry.product || {}; // Fallback to an empty object if product is null
+
   return (
     <>
       <div className="detailed-popup-overlay">
@@ -10,15 +12,15 @@ const DetailedPopup = ({ inquiry, close }) => {
           <hr />
           <div className="product-section">
             <div className="product-image">
-              <img src={inquiry.product.images[0]} alt={inquiry.product.name} />
+              <img src={product.images?.[0] || "[deleted]"} alt={product.name || "[deleted]"} />
             </div>
             <div className="product-details">
               <h3 className="italic-text">
-                {inquiry.product.name} <span>${inquiry.product.price}</span>
+                {product.name || "[deleted]"} <span>${product.price || "[deleted]"}</span>
               </h3>
-              <p className="secondary-text italic-text">Category: {inquiry.product.category.name}</p>
-              <p className="italic-text secondary-text">Product ID: {inquiry.product._id}</p>
-              <p className="client-message italic-text">{inquiry.product.description}</p>
+              <p className="secondary-text italic-text">Category: {product.category?.name || "[deleted]"}</p>
+              <p className="italic-text secondary-text">Product ID: {product._id || "[deleted]"}</p>
+              <p className="client-message italic-text">{product.description || "[deleted]"}</p>
             </div>
           </div>
           <hr className="divider"></hr>

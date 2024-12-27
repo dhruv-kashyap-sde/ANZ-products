@@ -20,6 +20,12 @@
 .basic-button:hover {
   background-color: var(--theme-color-hover);
 }
+
+.basic-button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
 .basic-button:active {
   background-color: var(--theme-color-active);
 }

@@ -57,7 +57,7 @@ const Inquiry = () => {
                   <td className="italic-text">{item.email}</td>
                   <td className="italic-text">{item.phone}</td>
                   <td className="italic-text">{item.message}</td>
-                  <td className="italic-text">{item.product.name}</td>
+                  <td className="italic-text">{item.product?.name ?? "[Deleted Product]"}</td>
                 </tr>
                 ))}
             </tbody>

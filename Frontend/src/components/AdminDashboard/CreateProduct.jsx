@@ -6,30 +6,31 @@ import toast from "react-hot-toast";
 const CreateProduct = () => {
   const URL = import.meta.env.VITE_API_URL;
   const [product, setProduct] = useState({
-    name: '',
-    description: '',
-    price: '',
-    categoryID: '',
+    name: "",
+    description: "",
+    price: "",
+    categoryID: "",
     image: null,
   });
 
   const [categories, setCategories] = useState([]);
-  
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     const getCategories = async () => {
       try {
-        let response = await axios.get(`${import.meta.env.VITE_API_URL}/categories`);
+        let response = await axios.get(
+          `${import.meta.env.VITE_API_URL}/categories`
+        );
         setCategories(response.data);
         console.log(response.data);
-        
       } catch (error) {
         console.log(`Error fetching Categories: ${error}`);
       }
-    }
+    };
 
     getCategories();
-  }, [])
+  }, []);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -50,36 +51,37 @@ const CreateProduct = () => {
     e.preventDefault();
 
     const formData = new FormData();
-    formData.append('name', product.name);
-    formData.append('description', product.description);
-    formData.append('price', product.price);
-    formData.append('categoryID', product.categoryID);
-    formData.append('image', product.image);
+    formData.append("name", product.name);
+    formData.append("description", product.description);
+    formData.append("price", product.price);
+    formData.append("categoryID", product.categoryID);
+    formData.append("image", product.image);
 
     try {
+      setLoading(true);
       const response = await axios.post(`${URL}/add-products`, formData, {
         headers: {
-          'Content-Type': 'multipart/form-data',
+          "Content-Type": "multipart/form-data",
         },
       });
       console.log(response.data);
-      toast.success('Product added successfully', {
+      toast.success("Product added successfully", {
         duration: 3000,
       });
     } catch (error) {
-      console.error('Error adding product', error);
-      toast.error('Error adding product');
-    } finally{
+      console.error("Error adding product", error);
+      toast.error("Error adding product");
+    } finally {
       setProduct({
-        name: '',
-        description: '',
-        price: '',
-        categoryID: '',
+        name: "",
+        description: "",
+        price: "",
+        categoryID: "",
         image: null,
-      })
+      });
+      setLoading(false);
     }
   };
-
 
   return (
     <>
@@ -87,14 +89,15 @@ const CreateProduct = () => {
         <h1>Create Product</h1>
         <hr />
         <div className="product-details">
-          <form  onSubmit={handleSubmit} className="product-form">
+          <form onSubmit={handleSubmit} className="product-form">
             <p>
               <span className="italic-text">Product Image</span>
               <input
                 required
                 type="file"
                 name="image"
-                onChange={handleImageChange}className="italic-text"
+                onChange={handleImageChange}
+                className="italic-text"
               />
             </p>
             <input
@@ -103,7 +106,8 @@ const CreateProduct = () => {
               name="name"
               placeholder="Product Name"
               value={product.name}
-              onChange={handleChange}className="italic-text"
+              onChange={handleChange}
+              className="italic-text"
             />
             <textarea
               name="description"
@@ -127,14 +131,23 @@ const CreateProduct = () => {
               value={product.categoryID}
               onChange={handleChange}
               className="italic-text"
+              required
             >
-              <option className="italic-text" defaultChecked value="">Select Category</option>
+              <option className="italic-text" defaultChecked value="">
+                Select Category
+              </option>
               {categories.map((category, index) => (
-                <option className="italic-text" key={index} value={category._id}>{category.name}</option>
+                <option
+                  className="italic-text"
+                  key={index}
+                  value={category._id}
+                >
+                  {category.name}
+                </option>
               ))}
             </select>
-            <button type="submit" className="basic-button">
-              Create
+            <button disabled={loading} type="submit" className="basic-button">
+              {loading ? "Adding Product..." : "Add Product"}
             </button>
           </form>
         </div>
