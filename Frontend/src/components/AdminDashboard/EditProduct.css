@@ -29,6 +29,7 @@
 .edit-product-form{
     background-color: #f5f5f5;
     padding: 30px;
+    width: 80%;
     border-radius: 10px;
     position: relative;
 }

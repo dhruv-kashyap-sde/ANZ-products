@@ -40,7 +40,7 @@ const Contactpage = () => {
             <p className="italic-text">
             Alternatively, you can use the contact form below to send us a message directly from this webpage. Simply fill out the required fields and click “Submit,” and we’ll get back to you as soon as we can.
             </p>
-            <div className="login-card">
+            <div className="contact-form  ">
               <h2> Contact us</h2>
               <form>
                 <input type="email" placeholder="Email" required />
