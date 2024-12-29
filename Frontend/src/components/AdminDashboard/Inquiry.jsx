@@ -2,7 +2,6 @@ import { useContext, useEffect, useState } from "react";
 import "./Inquiry.css";
 import DetailedPopup from "../../utils/Popups/DetailedPopup";
 import axios from "axios";
-import { ProductContext } from "../../context/ProductContext";
 
 const Inquiry = () => {
   const URL = import.meta.env.VITE_API_URL;

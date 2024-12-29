@@ -68,3 +68,9 @@
         flex-direction: column;
     }
 }
+.pagination-buttons{
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 20px;
+}

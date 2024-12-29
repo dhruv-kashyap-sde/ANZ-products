@@ -77,6 +77,9 @@
     font-family: "Itim", cursive;
     color: #555;
     max-height: 20%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
     min-height: fit-content;
   }
 

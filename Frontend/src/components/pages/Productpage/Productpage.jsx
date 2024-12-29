@@ -4,6 +4,7 @@ import ProductCard from "./ProductCard";
 import axios from "axios";
 import { ProductContext } from "../../../context/ProductContext";
 import Loaders from "../../../utils/Loaders/Loaders";
+import PaginationButtons from "./PaginationButtons";
 
 const Productpage = () => {
   const URL = import.meta.env.VITE_API_URL;
@@ -46,6 +47,13 @@ const Productpage = () => {
     setActiveCategory(null);
   };
 
+  // Pagination logic...
+  const [currentPage, setCurrentPage] = useState(1)
+  const [productPerPage, setProductPerPage] = useState(9);
+
+  const indexOfLastProduct = currentPage * productPerPage;
+  const indexOfFirstProduct = indexOfLastProduct - productPerPage;
+  const currentProducts = filteredProducts.slice(indexOfFirstProduct, indexOfLastProduct);
   return (
     <>
       <div className="curved-banner scroll-container">OUR PRODUCTS</div>
@@ -74,7 +82,7 @@ const Productpage = () => {
           <div className="product-card-container">
             {!loading ? (
               filteredProducts.length > 0 ? (
-                filteredProducts.map((product) => (
+                currentProducts.map((product) => (
                   <ProductCard key={product.id} product={product} />
                 ))
               ) : (
@@ -84,6 +92,7 @@ const Productpage = () => {
               <Loaders />
             )}
           </div>
+          <PaginationButtons totalProducts={filteredProducts.length} productPerPage={productPerPage} currentPage={currentPage} onPageChange={setCurrentPage}/>
         </div>
       </div>
     </>
