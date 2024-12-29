@@ -1,19 +1,57 @@
 const path = require('path');
 const Product = require("../models/Products");
-// Add a product
+const cloud = require('cloudinary').v2;
+const uploadss = require('../config/multerConfig');
+const dotenv = require('dotenv').config();
+
+// Configure Cloudinary (add this at the top of your file)
+cloud.config({ 
+  cloud_name: `${process.env.CLOUDINARY_CLOUD_NAME}`,
+  api_key: `${process.env.CLOUDINARY_API_KEY}`,
+  api_secret: `${process.env.CLOUDINARY_API_SECRET}`
+});
+
+// add product
 exports.addProduct = async (req, res) => {
   try {
-    const { name, description, price, categoryID } = req.body;
-    const image = `https://anzproductsltd.onrender.com/uploads/${req.file.filename}`;
-    const newProduct = new Product({
-      name,
-      description,
-      price,
-      category: categoryID,
-      images: [image],
+    // Handle file upload using multer and cloudinary
+    uploadss.single("image")(req, res, async (err) => {
+      if (err) {
+        return res.status(400).json({ error: err.message });
+      }
+      const { name, description, price, categoryID } = req.body;
+      
+      // Initialize empty variable for image
+      let images = [];
+
+      // If a product image is uploaded, upload to Cloudinary
+      if (req.file) {
+        console.log(req.file);
+        
+        try {
+          const result = await cloud.uploader.upload(req.file.path);
+          console.log(result);
+          console.log(images);
+          images.push(result.secure_url);
+        } catch (cloudinaryError) {
+          console.log(images);
+          return res.status(400).json({ error: "Error uploading image to Cloudinary" });
+        }
+      }
+
+      const newProduct = new Product({
+        name,
+        description,
+        price,
+        category: categoryID,
+        images: images,
+      });
+      console.log(images);
+      
+
+      const savedProduct = await newProduct.save();
+      res.status(201).json(savedProduct);
     });
-    const savedProduct = await newProduct.save();
-    res.status(201).json(savedProduct);
   } catch (err) {
     res.status(500).json({ error: err.message });
   }

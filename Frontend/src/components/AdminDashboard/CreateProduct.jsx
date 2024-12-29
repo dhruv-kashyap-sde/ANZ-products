@@ -10,8 +10,9 @@ const CreateProduct = () => {
     description: "",
     price: "",
     categoryID: "",
-    image: null,
   });
+
+  const [selectedImage, setSelectedImage] = useState(null);
 
   const [categories, setCategories] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -41,10 +42,7 @@ const CreateProduct = () => {
   };
 
   const handleImageChange = (e) => {
-    setProduct({
-      ...product,
-      image: e.target.files[0],
-    });
+    setSelectedImage(e.target.files[0]);
   };
 
   const handleSubmit = async (e) => {
@@ -55,8 +53,11 @@ const CreateProduct = () => {
     formData.append("description", product.description);
     formData.append("price", product.price);
     formData.append("categoryID", product.categoryID);
-    formData.append("image", product.image);
 
+    // Only append image if a new one is selected
+    if (selectedImage) {
+      formData.append("image", selectedImage);
+    }
     try {
       setLoading(true);
       const response = await axios.post(`${URL}/add-products`, formData, {
@@ -68,10 +69,6 @@ const CreateProduct = () => {
       toast.success("Product added successfully", {
         duration: 3000,
       });
-    } catch (error) {
-      console.error("Error adding product", error);
-      toast.error("Error adding product");
-    } finally {
       setProduct({
         name: "",
         description: "",
@@ -79,6 +76,10 @@ const CreateProduct = () => {
         categoryID: "",
         image: null,
       });
+    } catch (error) {
+      console.error("Error adding product", error);
+      toast.error("Error adding product");
+    } finally {
       setLoading(false);
     }
   };
