@@ -1,15 +1,16 @@
 import React from 'react'
 import './Sidebar.css'
+import { Link } from 'react-router-dom'
 
 const Sidebar = () => {
   return (
     <>
         <div className="sidebar-container">
             <div className="sidebar-links">
-                <a href="/" className="sidebar-link">Home</a>
-                <a href="/about" className="sidebar-link">About</a>
-                <a href="/contact" className="sidebar-link">Contact</a>
-                <a href="/products" className="sidebar-link">Products</a>
+                <Link to="/" className="sidebar-link">Home</Link>
+                <Link to="/about" className="sidebar-link">About</Link>
+                <Link to="/contact" className="sidebar-link">Contact</Link>
+                <Link to="/products" className="sidebar-link">Products</Link>
             </div>
         </div>
     </>
