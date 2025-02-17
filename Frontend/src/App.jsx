@@ -12,10 +12,12 @@ import PrivateRoute from './utils/Private/PrivateRoute';
 import AdminDashboard from './components/AdminDashboard/AdminDashboard';
 import SingleProduct from './components/pages/Productpage/SingleProduct';
 import { Toaster } from 'react-hot-toast';
+import ScrollToTop from './utils/Functions/ScrollToTop';
 
 const App = () => {
   return (
     <Router>
+      <ScrollToTop />
       <Navbar/>
       <Routes>
         <Route exact path="/" element={<Homepage/>} />

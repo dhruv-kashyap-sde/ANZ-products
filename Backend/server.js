@@ -16,7 +16,7 @@ const dotenv = require('dotenv');
 dotenv.config();
 
 app.use(bodyParser.json());
-app.use(cors());
+app.use(cors({origin:'https://anzproductsltd.onrender.com'}));
 app.use('/uploads', express.static(path.join(__dirname, 'uploads'))); // Serve uploaded images
 
 mongoose.connect(process.env.MONGO_URI)
